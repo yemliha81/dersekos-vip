@@ -186,7 +186,7 @@
     <div class="logo-div">
         <div class="container">
             <div class="logo-bar">
-                <a href="{{env('HTTP_DOMAIN')}}">
+                <a href="{{env('HTTP_DOMAIN')}}" >
                   <img src="{{ asset('img/dersekos-vip-logo-1.jpg') }}" width="300" alt="Logo" />
                 </a>
             </div>
