@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- favicon --> 
+    <link rel="icon" type="image/png" href="" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=SN+Pro:ital,wght@0,200..900;1,200..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/locales-all.global.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jquery latest --> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        html,body {
+            margin: 0;
+            padding: 0;
+            font-family: "SN Pro", sans-serif;
+            
+        }
+        .logo-div{
+            background-color: #222222;
+            
+        }
+        .logo-bar {
+            padding: 10px 0;
+            text-align: center;
+        }
+        .top-nav-wrapper{
+            background-color: #f8f9fa;
+        }
+        .top-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            
+        }
+        .top-navbar a {
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            color: #000000;
+        }
+        .top-navbar a:hover {
+            text-decoration: underline;
+        }
+        .banner-div {
+            background: linear-gradient(45deg, #a8792b, #fef3b5, #a8792b);
+            padding: 10px 0;
+        }
+        .banner{
+            position: relative;
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .banner-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+            padding: 40px 10px;
+        }
+        .banner-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .banner-text p {
+            font-size: 1.5rem;
+            line-height: 1.5;
+        }
+        .banner-button{
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #222222;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .services{
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .services > div{
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #000000;
+        }
+
+        .service-card{
+            background: #000000;
+            color: #d1b46d;
+        }
+
+        .service-card h3{
+            margin-bottom: 15px;
+            color: #FFFFFF;
+        }
+
+        .testimonials{
+            margin-top: 50px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .testimonials h2{
+            text-align: center;
+        }
+
+        .testimonials p{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .testimonials-grid{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .testimonials-card{
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #000000;
+            background: #f3f3f3;
+        }
+
+        .testimonials-card p{
+            text-align: center;
+            font-style: italic;
+        }
+
+        .services-title h2{
+            text-align: center;
+        }
+
+        .rating-stars{
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="logo-div">
+        <div class="container">
+            <div class="logo-bar">
+                <img src="img/dersekos-vip-logo-1.jpg" width="300" alt="Logo" />
+            </div>
+        </div>
+
+    </div>
+    <div class="top-nav-wrapper">
+        <div class="container">
+            <div class="top-navbar">
+                <div>
+                    <a href="">Anasayfa</a>
+                    <a href="">Hakkımızda</a>
+                    <a href="">İletişim</a>
+                </div>
+                <div>
+                    <a href="">Giriş Yap</a>
+                    <a href="">Kayıt Ol</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="banner-div">
+            <div class="container">
+                <div class="banner">
+                    <div>
+                        <div class="banner-text">
+                            <h1 style=" color: #222222;">Dersekoş VIP ile <br>hep bir adım önde olun!</h1>
+                            <p style="color: #222222;">Derseko's VIP üyeliği ile birçok ayrıcalığa sahip olabilirsiniz. VIP üyelerimize özel içerikler, indirimler ve daha fazlası sizi bekliyor!</p>
+                            <button class="banner-button">Hemen Üye Ol</button>
+                        </div>
+                    </div>
+                    <div style="text-align:right">
+                        <img class="image-switcher" src="img/vip-banner-1.png" image2="img/vip-banner-2.png" width="80%" alt="Banner" />
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="container">
+            <div class="services mt-5 mb-5">
+                <div class="service-card">
+                    <h3>Özel İçerikler</h3>
+                    <p>VIP üyelerimize özel hazırlanmış ders notları, videolar ve sınavlara hazırlık materyalleri.</p>
+                </div>
+                <div class="service-card">
+                    <h3>İndirimler</h3>
+                    <p>VIP üyelerimize özel indirimler ve kampanyalarla eğitim materyallerine daha uygun fiyatlarla erişim.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Öncelikli Destek</h3>
+                    <p>Her türlü soru ve sorunlarınızda VIP üyelerimize öncelikli destek hizmeti sunuyoruz.</p>
+                </div>
+            </div>
+            <div class="services-title">
+                <h2 class="mb-4">Popüler Dersler</h2>
+            </div>
+            <div class="services">
+                <div>
+                    <img src="img/matematik.png" alt="matematik" width="100%">
+                </div>
+                <div>
+                    <img src="img/fen-bilimleri.png" alt="fen-bilimleri" width="100%">
+                </div>
+                <div>
+                    <img src="img/turkce.png" alt="turkce" width="100%">
+                </div>
+            </div>
+            <div class="testimonials">
+                <h2 class="mt-5 mb-4">Kullanıcı Yorumları</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonials-card">
+                    <p>"Dersekoş VIP üyeliği sayesinde eğitim materyallerine daha uygun fiyatlarla erişebildim." - Mehmet Y.</p>
+                        <div class="rating-stars">
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                        </div>
+                    </div>
+                    <div class="testimonials-card">
+                    <p>"Dersekoş VIP üyeliği sayesinde derslerimde büyük ilerleme kaydettim. Özel içerikler gerçekten çok faydalı!" - Ayşe K.</p>
+                        <div class="rating-stars">
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                        </div>
+                    </div>
+                    <div class="testimonials-card">
+                    <p>"VIP üyeliği ile aldığım indirimler sayesinde eğitim materyallerine daha uygun fiyatlarla erişebildim." - Mehmet T.</p>
+                        <div class="rating-stars">
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                        </div>
+                    </div>
+                    <div class="testimonials-card">
+                    <p>"Öncelikli destek hizmeti sayesinde her soruma hızlıca cevap bulabildim. Teşekkürler Dersekoş!" - Elif S.</p>
+                        <div class="rating-stars">
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+
+        //setInterval function to switch image every 5 seconds
+        setInterval(function(){
+            $('.image-switcher').each(function(){
+                var img1 = $(this).attr('src');
+                var img2 = $(this).attr('image2');
+                //add fadeOut and fadeIn effect
+                $(this).fadeOut(500, function(){
+                    $(this).attr('src', img2);
+                    $(this).attr('image2', img1);
+                    $(this).fadeIn(500);
+                });
+            });
+        }, 5000);
+
+
+        
+    });
+</script>
+</html>

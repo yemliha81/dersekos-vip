@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Eğitim Platformu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <!-- Slick -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"/>
+
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; }
+
+        .hero {
+            background: linear-gradient(120deg, #4e73df, #1cc88a);
+            color: #fff;
+            padding: 100px 0;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: #4e73df;
+        }
+
+        .teacher-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        footer {
+            background: #1e1e2f;
+            color: #bbb;
+            padding: 40px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="#">EğitimX</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="menu" class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Anasayfa</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Canlı Dersler</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">PDF İçerikler</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Oyunlar</a></li>
+                <li class="nav-item">
+                    <a class="btn btn-primary ms-2" href="#">Giriş Yap</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero text-center mt-5">
+    <div class="container">
+        <h1 class="fw-bold mb-3">Ücretsiz Canlı Derslerle Öğren</h1>
+        <p class="lead mb-4">Alanında uzman öğretmenlerden canlı dersler, PDF içerikler ve eğitici oyunlar</p>
+        <a href="#" class="btn btn-light btn-lg me-2">Derslere Katıl</a>
+        <a href="#" class="btn btn-outline-light btn-lg">Kayıt Ol</a>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <i class="fa-solid fa-video feature-icon mb-3"></i>
+                <h5>Canlı Dersler</h5>
+                <p>Öğretmenlerle birebir ve interaktif canlı dersler</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <i class="fa-solid fa-file-pdf feature-icon mb-3"></i>
+                <h5>PDF Ders Notları</h5>
+                <p>Tüm dersler için ücretsiz indirilebilir içerikler</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <i class="fa-solid fa-gamepad feature-icon mb-3"></i>
+                <h5>Eğitici Oyunlar</h5>
+                <p>Öğrenirken eğlen, bilgini test et</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TEACHER SLIDER -->
+<section class="bg-light py-5">
+    <div class="container">
+        <h3 class="text-center mb-4">Popüler Öğretmenler</h3>
+
+        <div class="teacher-slider">
+            <div class="teacher-card">
+                <i class="fa-solid fa-user-graduate fa-3x mb-3 text-primary"></i>
+                <h6>Ahmet Yılmaz</h6>
+                <p>Matematik Öğretmeni</p>
+            </div>
+            <div class="teacher-card">
+                <i class="fa-solid fa-user-graduate fa-3x mb-3 text-success"></i>
+                <h6>Elif Demir</h6>
+                <p>Fen Bilimleri</p>
+            </div>
+            <div class="teacher-card">
+                <i class="fa-solid fa-user-graduate fa-3x mb-3 text-warning"></i>
+                <h6>Mehmet Kaya</h6>
+                <p>Türkçe</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GAME CTA -->
+<section class="py-5 text-center">
+    <div class="container">
+        <h3>Eğitici Oyunlarla Bilgini Pekiştir</h3>
+        <p class="mb-4">Seviyeni yükselt, rozetler kazan</p>
+        <a href="#" class="btn btn-success btn-lg">
+            <i class="fa-solid fa-play"></i> Oyunlara Başla
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container text-center">
+        <p class="mb-1">© 2025 EğitimX</p>
+        <small>Ücretsiz eğitim herkesin hakkı</small>
+    </div>
+</footer>
+
+<!-- JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.teacher-slider').slick({
+            slidesToShow: 3,
+            autoplay: true,
+            arrows: false,
+            dots: true,
+            responsive: [
+                { breakpoint: 768, settings: { slidesToShow: 1 } }
+            ]
+        });
+    });
+</script>
+
+</body>
+</html>
