@@ -179,9 +179,31 @@
             color: #dddddd !important;
             font-size: 12px;
         }
+
+        .has-children{
+            position: relative;
+            display: inline-block;
+            font-weight:600;
+        }
+
+        .sub-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f8f9fa;
+            padding: 10px;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            z-index: 1000;
+            min-width: 300px;
+        }
+        .has-children:hover .sub-menu {
+            display: block;
+        }
         
     </style>
 </head>
+<?php $vip_packages = App\Models\VipPackage::all(); ?>
 <body>
     <div class="logo-div">
         <div class="container">
@@ -198,12 +220,21 @@
             <div class="top-navbar">
                 <div>
                     <a href="">Anasayfa</a>
-                    <a href="">Hakkımızda</a>
-                    <a href="">İletişim</a>
+                    <a href="">Eğitmenlerimiz</a>
+                    <span class="has-children">Paketlerimiz
+                        <i class="bi bi-caret-down-fill"></i>
+                        <div class="sub-menu">
+                            @foreach($vip_packages as $package)
+                                <div>
+                                    <a href="">{{ $package->title }}</a>
+                                </div>
+                            @endforeach
+                        </div>
+                    </span>
+                    
                 </div>
                 <div>
-                    <a href="">Giriş Yap</a>
-                    <a href="">Kayıt Ol</a>
+                    <a href="{{ route('student.login') }}">Giriş yap / Üye ol</a>
                 </div>
             </div>
         </div>

@@ -17,6 +17,7 @@ use App\Models\SeoSettings;
 use App\Models\Teacher;
 use App\Models\Event;
 use App\Models\Campaign;
+use App\Models\VipPackage;
 use Illuminate\Support\Facades\DB;
 
 
@@ -56,6 +57,32 @@ class HomeController extends Controller
         //dd($campaigns);
 
         return view('camp_registration', compact('meta_title', 'campaigns'));
+
+    }
+
+    public function vipPackages()
+    {
+        $meta_title = "VIP Paketlerimiz";
+
+        $vip_packages = VipPackage::all();
+
+        return view('vip-packages', compact('meta_title', 'vip_packages'));
+
+    }
+
+    public function purchaseVipPackage($id){
+        $vip_package = VipPackage::find($id);
+        return view('vip-package-purchase', compact('vip_package'));
+    }
+
+    //purchaseVipPackagePost
+    public function purchaseVipPackagePost(Request $request){
+        //$vip_package = VipPackage::find($id);
+        //dd($vip_package);
+        // Here you would handle the payment process and order creation
+        // For demonstration, we'll just return a success message
+
+        return redirect()->route('vip.packages')->with('success', 'VIP paketi satın alma işlemi başarılı!');
 
     }
 

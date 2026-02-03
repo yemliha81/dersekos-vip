@@ -121,6 +121,13 @@ Route::get('/ara-tatil-kamplar', 'App\Http\Controllers\HomeController@campsList'
 Route::get('/exam/{id}', 'App\Http\Controllers\ExamController@index')->name('exam.index');
 Route::post('/exam/{exam_id}/submit-answers', 'App\Http\Controllers\ExamController@submitAnswers')->name('exam.submit_answers');
 
+// VIP Packages route
+Route::get('/vip-paketler', 'App\Http\Controllers\HomeController@vipPackages')->name('vip.packages');
+// VIP package purchase route
+Route::get('/vip-paketler/satin-al/{id}', 'App\Http\Controllers\HomeController@purchaseVipPackage')->name('vip.package.purchase');
+//vip.package.purchase.post
+Route::post('/vip-paketler/satin-al', 'App\Http\Controllers\HomeController@purchaseVipPackagePost')->name('vip.package.purchase.post');
+
 
 
 // Route for HomeController copyDB function

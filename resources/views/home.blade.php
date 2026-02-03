@@ -9,9 +9,9 @@
                 <div class="banner">
                     <div>
                         <div class="banner-text">
-                            <h1 style=" color: #222222;">Dersekoş VIP ile <br>hep bir adım önde olun!</h1>
+                            <h1 style=" color: #222222;">Derse Koş VIP ile <br>hep bir adım önde olun!</h1>
                             <p style="color: #222222;">Derseko's VIP üyeliği ile birçok ayrıcalığa sahip olabilirsiniz. VIP üyelerimize özel içerikler, indirimler ve daha fazlası sizi bekliyor!</p>
-                            <button class="banner-button">Hemen Üye Ol</button>
+                            <button class="banner-button">Paketleri İncele</button>
                         </div>
                     </div>
                     <div style="text-align:right">
