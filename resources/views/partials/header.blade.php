@@ -160,6 +160,25 @@
         .rating-stars{
             text-align: center;
         }
+
+        .footer {
+            background-color: #222222;
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+            text-align: center;
+        }
+        .footer a {
+            color: #d1b46d;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .footer p.text-muted{
+            margin-top: 10px;
+            color: #dddddd !important;
+            font-size: 12px;
+        }
         
     </style>
 </head>
@@ -167,7 +186,9 @@
     <div class="logo-div">
         <div class="container">
             <div class="logo-bar">
-                <img src="img/dersekos-vip-logo-1.jpg" width="300" alt="Logo" />
+                <a href="{{env('HTTP_DOMAIN')}}">
+                  <img src="{{ asset('img/dersekos-vip-logo-1.jpg') }}" width="300" alt="Logo" />
+                </a>
             </div>
         </div>
 
