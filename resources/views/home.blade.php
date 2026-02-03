@@ -2,223 +2,120 @@
 
 
 @section('content')
-<main>
-  <div class="container">
-        <section>
 
-          <div style="text-align:center">
-            <div class="home-header-div mb-50">
-              <img src="{{asset('assets/img/dersekos.jpg')}}" width="150" alt="DerseKos Logo" >
-              <div>
-                <h3>Haydi sen de derse koş!</h3>
-                <p>Türkiye'nin yeni nesil online eğitim platformu.</p>
-              </div>
-            </div>
-            
-          </div>
-
-          
-            <div class="row mb-50">
-              
-                <div class="top-info-boxes">
-                  <div class="top-info-box">
-                    <div class="top-info-box-icon">
-                      <i class="bi bi-people-fill fs-1"></i>
+    <div class="main-content">
+        <div class="banner-div">
+            <div class="container">
+                <div class="banner">
+                    <div>
+                        <div class="banner-text">
+                            <h1 style=" color: #222222;">Dersekoş VIP ile <br>hep bir adım önde olun!</h1>
+                            <p style="color: #222222;">Derseko's VIP üyeliği ile birçok ayrıcalığa sahip olabilirsiniz. VIP üyelerimize özel içerikler, indirimler ve daha fazlası sizi bekliyor!</p>
+                            <button class="banner-button">Hemen Üye Ol</button>
+                        </div>
                     </div>
-                    <div class="top-info-box-content">
-                      <div class="top-info-box-title"><b>Uzman Eğitmenler</b></div> 
-                      <div class="top-info-box-subtitle">200'ün üzerinde eğitmen kadromuzla yanınızdayız.</div>
+                    <div style="text-align:right">
+                        <img class="image-switcher" src="{{env('HTTP_DOMAIN')}}/img/vip-banner-1.png" image2="img/vip-banner-2.png" width="80%" alt="Banner" />
                     </div>
-                  </div>
-                  <div class="top-info-box">
-                    <div class="top-info-box-icon">
-                      <i class="bi bi-play-circle fs-1"></i>
-                    </div>
-                    <div class="top-info-box-content">
-                      <div class="top-info-box-title"><b>Ücretsiz Dersler</b></div> 
-                      <div class="top-info-box-subtitle">Her hafta, her sınıf seviyesinden ücretsiz ders fırsatı.</div>
-                    </div>
-                  </div>
-                  <div class="top-info-box">
-                    <div class="top-info-box-icon">
-                      <i class="bi bi-pencil-square fs-1"></i>
-                    </div>
-                    <div class="top-info-box-content">
-                      <div class="top-info-box-title"><b>Uygun Fiyatlı Kamplar</b></div> 
-                      <div class="top-info-box-subtitle">Bütçenize uygun ve hedefe yönelik kamplarımıza kayıt olabilirsiniz.</div>
-                    </div>
-                  </div>
-
-                  <div class="top-info-box">
-                    <div class="top-info-box-icon">
-                      <i class="bi bi-controller fs-1"></i>
-                    </div>
-                    <div class="top-info-box-content">
-                      <div class="top-info-box-title"><b>Eğitici Oyunlar</b></div> 
-                      <div class="top-info-box-subtitle">Her dersten eğitici oyunlarla eğlenirken öğrenin.</div>
-                    </div>
-                  </div>
+                </div>
                 
-          </div>
-          
-        </section>
-
-        <!--<section>
-          <div class="text-center mb-4"><h4><b>Öne Çıkan Kamp ve Etkinlikler</b></h4></div>
-        </section>
-        <section class="hero-card mb-50 camp-photos">
-          
-              <a target="_blank" class="" href="{{route('camp.registration')}}">
-                <img  src="{{asset('assets/img/fatih-korkmaz-kamp-8-1.jpg?v=123')}}"  alt="Fatih Korkmaz Matematik Kampı" loading="lazy">
-              </a>
-
-              <a target="_blank" class="" href="{{route('camp.registration')}}">
-                <img  src="{{asset('assets/img/kemal-oltulu-kamp.jpg')}}"  alt="Kemal Oltulu Matematik Kampı" loading="lazy">
-              </a>
-
-              <a target="_blank" class="" href="{{route('camp.registration')}}">
-                <img  src="{{asset('assets/img/ayse-gul-turkce-kamp.jpg')}}"  alt="Ayşe Gül Türkçe Kampı" loading="lazy">
-              </a>
-
-              <a target="_blank" class="" href="{{route('camp.registration')}}">
-                <img  src="{{asset('assets/img/guzide-arslanhan-turkce-8-sinif-kamp.jpg')}}"  alt="Güzide Arslanhan Türkçe Kampı 8. Sınıf" loading="lazy">
-              </a>
-
-              <a target="_blank" class="" href="{{route('camp.registration')}}">
-                <img  src="{{asset('assets/img/8-sinif-lgs-kamp-fen-bilimleri.jpg')}}"  alt="8. Sınıf Fen bilimleri Kampı sınıf" loading="lazy">
-              </a>
-
-              
-            
-        </section>
-        <section class="text-center mb-50">
-          <a href="{{route('camp.registration')}}" class="btn btn-primary btn-lg">Tüm Kamp ve Etkinliklere Gözat</a>
-        </section>-->
-
-        
-        <section class="hero-card mb-50 bg-purple text-white">
-          <p class="text-center">
-            Her gün daha da büyüyen eğitmen ve öğrenci topluluğumuza katılın.<br/> İster sınavlara hazırlanın, ister yeni beceriler öğrenin, 
-            size en uygun eğitmeni bulun. 
-          </p>
-
-        </section>
-
-        <section>
-          <div class="teachers-section mb-50">
-              <div class="text-center mb-4"><h4><b>Eğitmenlerimiz</b></h4></div>
-              <div class="teachers-grid">
-                @foreach($teachers as $teacher)
-                    <div class="">
-                      <div class="teacher-box" tabindex="0">
-                          <div class="mb-3 teacher-avatar">
-                              @if($teacher->image == null)
-                                  <img src="{{ asset('assets/img/default-image.png') }}" class="profile-img" width="80" alt="">
-                              @else
-                              <img src="{{ asset($teacher->image) }}" class="profile-img" width="80" alt="">
-                              @endif
-                          </div>
-                          <div style=""><strong>{{ $teacher->name }} {{ $teacher->surname }}</strong></div>
-                          <small class="teacher-branch">{{ ucwords(str_replace('_', ' ',   $teacher->branch)) }} </small>
-                          <div style="margin-top:8px; display:flex; gap:8px; align-items:center">
-                            <a href="{{route('teacher.public.profile', ['id' => $teacher->id])}}" class="btn btn-primary" style="padding:8px 12px; font-weight:700">Profili İncele</a>
-                          </div>
-                      </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="services mt-5 mb-5">
+                <div class="service-card">
+                    <h3>Özel İçerikler</h3>
+                    <p>VIP üyelerimize özel hazırlanmış ders notları, videolar ve sınavlara hazırlık materyalleri.</p>
+                </div>
+                <div class="service-card">
+                    <h3>İndirimler</h3>
+                    <p>VIP üyelerimize özel indirimler ve kampanyalarla eğitim materyallerine daha uygun fiyatlarla erişim.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Öncelikli Destek</h3>
+                    <p>Her türlü soru ve sorunlarınızda VIP üyelerimize öncelikli destek hizmeti sunuyoruz.</p>
+                </div>
+            </div>
+            <div class="services-title">
+                <h2 class="mb-4">Popüler Dersler</h2>
+            </div>
+            <div class="services">
+                <div>
+                    <img src="img/matematik.png" alt="matematik" width="100%">
+                </div>
+                <div>
+                    <img src="img/fen-bilimleri.png" alt="fen-bilimleri" width="100%">
+                </div>
+                <div>
+                    <img src="img/turkce.png" alt="turkce" width="100%">
+                </div>
+            </div>
+            <div class="testimonials">
+                <h2 class="mt-5 mb-4">Kullanıcı Yorumları</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonials-card">
+                    <p>"Dersekoş VIP üyeliği sayesinde eğitim materyallerine daha uygun fiyatlarla erişebildim." - Mehmet Y.</p>
+                        <div class="rating-stars">
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                        </div>
                     </div>
-                  @endforeach
-              </div>
-          </div>
-        </section>
-
-          <!--<section class="hero-card mb-50 " aria-labelledby="hero-title">
-            <div class="hero-left grid-20">
-              <h3 id="hero-title" class="text-center">Size en uygun eğitmeni bulun. Hızlı, güvenilir, uygun fiyatlı</h3>
-              <p class="muted text-center">Matematik, yabancı dil, sınav hazırlık veya hobi dersleri. Dersleri filtrele, eğitmen profillerini incele ve ilk dersini ayarla.</p>
+                    <div class="testimonials-card">
+                    <p>"Dersekoş VIP üyeliği sayesinde derslerimde büyük ilerleme kaydettim. Özel içerikler gerçekten çok faydalı!" - Ayşe K.</p>
+                        <div class="rating-stars">
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                        </div>
+                    </div>
+                    <div class="testimonials-card">
+                    <p>"VIP üyeliği ile aldığım indirimler sayesinde eğitim materyallerine daha uygun fiyatlarla erişebildim." - Mehmet T.</p>
+                        <div class="rating-stars">
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                        </div>
+                    </div>
+                    <div class="testimonials-card">
+                    <p>"Öncelikli destek hizmeti sayesinde her soruma hızlıca cevap bulabildim. Teşekkürler Dersekoş!" - Elif S.</p>
+                        <div class="rating-stars">
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                            <i class="bi bi-star-fill" style="color: #f4c150;"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </section>
-
-         
-          <section id="features" class="hero-card text-center mb-50" style="margin-top:22px">
-            <h2 style="margin:0 0 12px 0">Platform özellikleri</h2>
-            <div class="features">
-              <div class="feature">
-                <strong>Güvenli ödeme</strong>
-                <p class="muted" style="margin:8px 0 0 0">Kredi kartı, havale ve cüzdan ile hızlı ödeme. Ders sonrası puanlama ve iade politikası.</p>
-              </div>
-              <div class="feature">
-                <strong>Canlı ders arayüzü</strong>
-                <p class="muted" style="margin:8px 0 0 0">Ekran paylaşımı, beyaz tahta, kayıt ve ders materyali paylaşımı.</p>
-              </div>
-              <div class="feature">
-                <strong>Özelleştirilebilir program</strong>
-                <p class="muted" style="margin:8px 0 0 0">Saatlik, paket veya abonelik tabanlı ders planları.</p>
-              </div>
-            </div>
-          </section>-->
+        </div>
     </div>
-</main>
 
-    <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
+<script>
+    $(document).ready(function(){
 
-    <script>
-    // Swiper başlatma
-     const swiperA = new Swiper('.swiperA', {
-      loop: true,
-      spaceBetween: 12,
-      spaceAround: true,
-      slidesPerView: 1,          // default (geniş ekran için)
-      centeredSlides: false,
-      observer: true,
-      observeParents: true,
-      preloadImages: false,
-      lazy: { loadPrevNext: true },
-
-     
-
-      navigation: {
-        nextEl: '.nextA',
-        prevEl: '.prevA',
-      },
-
-      pagination: {
-        el: '.pagerA',
-        clickable: true,
-      },
-
-      a11y: { enabled: true },
+        //setInterval function to switch image every 5 seconds
+        setInterval(function(){
+            $('.image-switcher').each(function(){
+                var img1 = $(this).attr('src');
+                var img2 = $(this).attr('image2');
+                //add fadeOut and fadeIn effect
+                $(this).fadeOut(500, function(){
+                    $(this).attr('src', img2);
+                    $(this).attr('image2', img1);
+                    $(this).fadeIn(500);
+                });
+            });
+        }, 5000);
     });
-
-    const swiperB = new Swiper('.swiperB', {
-      loop: true,
-      spaceBetween: 16,
-      spaceAround: 16,
-      slidesPerView: 4,
-      observer: true,
-      observeParents: true,
-      preloadImages: false,
-      lazy: { loadPrevNext: true },
-
-      // responsive breakpoints (mobilde 1 göster)
-      breakpoints: {
-        0:   { slidesPerView: 1, spaceBetween: 8 },
-        576: { slidesPerView: 1, spaceBetween: 10 },
-        768: { slidesPerView: 2, spaceBetween: 12 },
-        1200:{ slidesPerView: 4, spaceBetween: 16 }
-      },
-
-      navigation: {
-        nextEl: '.nextB',
-        prevEl: '.prevB',
-      },
-
-      pagination: {
-        el: '.pagerB',
-        clickable: true,
-      },
-
-      a11y: { enabled: true },
-    });
-  </script>
+</script>
 
 @endsection
 
