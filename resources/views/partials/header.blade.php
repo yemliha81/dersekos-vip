@@ -219,14 +219,15 @@
         <div class="container">
             <div class="top-navbar">
                 <div>
-                    <a href="">Anasayfa</a>
+                    <a href="{{env('HTTP_DOMAIN')}}">Anasayfa</a>
                     <a href="">Eğitmenlerimiz</a>
-                    <span class="has-children">Paketlerimiz
+                    <span class="has-children">
+                        <a href="{{ route('vip.packages') }}">Paketlerimiz</a>
                         <i class="bi bi-caret-down-fill"></i>
                         <div class="sub-menu">
                             @foreach($vip_packages as $package)
                                 <div>
-                                    <a href="">{{ $package->title }}</a>
+                                    <a href="{{ route('vip.package.purchase', $package->id) }}">{{ $package->title }}</a>
                                 </div>
                             @endforeach
                         </div>

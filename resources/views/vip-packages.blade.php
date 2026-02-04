@@ -2,7 +2,35 @@
 
 
 @section('content')
-
+    <style>
+        .vip-packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .vip-package {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .vip-package img {
+            width: 100%;
+            height: auto;
+        }
+        @media (max-width: 768px) {
+            
+            .vip-package img {
+                width: 100%;
+                height: auto;
+        }
+        }
+           
+    </style>
     <div class="main-content">
         
         <div class="container">
@@ -11,17 +39,19 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <div class="vip-packages">
+            <div class="section-title mb-4 mt-4 text-center">
                 <h1>Paketlerimiz</h1>
+            </div>
+            <div class="vip-packages">
                 @foreach($vip_packages as $package)
-                    <div class="vip-package" style="border:1px solid #ccc; padding:15px; margin-bottom:20px; display:flex; gap:15px;">
+                    <div class="vip-package">
                         <div>
                             <img src="{{ env('APP_URL') .'/'. $package->image }}" width="200" alt="">
                         </div>
                         <div>
                             <b>{{ $package->title }}</b>
                             <p>{{ $package->description }}</p>
-                            <p>{{ $package->price }} TL</p>
+                            <p>Aylık: {{ $package->price }} TL</p>
                         </div>
                         <div>
                             <a href="{{ route('vip.package.purchase', $package->id) }}" class="btn btn-primary">Satın Al</a>
