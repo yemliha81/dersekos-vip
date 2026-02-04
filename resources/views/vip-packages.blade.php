@@ -16,7 +16,7 @@
                 @foreach($vip_packages as $package)
                     <div class="vip-package" style="border:1px solid #ccc; padding:15px; margin-bottom:20px; display:flex; gap:15px;">
                         <div>
-                            <img src="{{ env('APP_URL') .'/'. $package->image }}" alt="">
+                            <img src="{{ env('APP_URL') .'/'. $package->image }}" width="200" alt="">
                         </div>
                         <div>
                             <b>{{ $package->title }}</b>
