@@ -128,6 +128,12 @@ Route::get('/vip-paketler/satin-al/{id}', 'App\Http\Controllers\HomeController@p
 //vip.package.purchase.post
 Route::post('/vip-paketler/satin-al', 'App\Http\Controllers\HomeController@purchaseVipPackagePost')->name('vip.package.purchase.post');
 
+// cart routes
+Route::get('/sepetim', 'App\Http\Controllers\CartController@index')->name('cart.index');
+Route::post('/cart/add', 'App\Http\Controllers\CartController@addToCart')->name('cart.add');
+Route::post('/cart/remove', 'App\Http\Controllers\CartController@removeFromCart')->name('cart.remove');
+Route::get('/cart/empty', 'App\Http\Controllers\CartController@emptyCart')->name('cart.empty');
+
 
 
 // Route for HomeController copyDB function

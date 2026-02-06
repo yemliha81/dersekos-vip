@@ -54,7 +54,7 @@
                             <p>Aylık: {{ $package->price }} TL</p>
                         </div>
                         <div>
-                            <a href="{{ route('vip.package.purchase', $package->id) }}" class="btn btn-primary">Satın Al</a>
+                            <a href="{{ route('cart.add', $package->id) }}" class="btn btn-primary add-to-cart-btn" data-package-id="{{ $package->id }}">Sepete Ekle</a>
                         </div>
                     </div>
                 @endforeach
@@ -63,6 +63,36 @@
     </div>
 
 
+
+@endsection
+
+@section('scripts')
+
+        <script>
+            $(document).ready(function() {
+                // Add to cart Ajax function
+                $('.add-to-cart-btn').click(function(e) {
+                    e.preventDefault();
+                    var packageId = $(this).data('package-id');
+                    $.ajax({
+                        url: '{{ route("cart.add") }}',
+                        method: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            package_id: packageId
+                        },
+                        success: function(response) {
+                            alert('Paket sepete eklendi!');
+                            //redirect to cart page
+                            window.location.href = '{{ route("cart.index") }}';
+                        },
+                        error: function(xhr) {
+                            alert('Sepete eklenirken bir hata oluştu.');
+                        }
+                    });
+                });
+            })
+        </script>
 
 @endsection
 

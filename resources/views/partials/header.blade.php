@@ -236,6 +236,7 @@
                 </div>
                 <div>
                     <a href="{{ route('student.login') }}">Giriş yap / Üye ol</a>
+                    <a href="{{ route('cart.index') }}">Sepetim</a>
                 </div>
             </div>
         </div>
