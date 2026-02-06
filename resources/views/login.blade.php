@@ -2,7 +2,91 @@
 
 
 @section('content')
+  <style>
 
+    /* Auth Box */
+    .auth-wrap{min-height:calc(100vh - 160px); display:flex; align-items:center; justify-content:center}
+    .auth-card{width:100%; max-width:420px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:26px; border-radius:20px; box-shadow:0 10px 40px rgba(2,6,23,.7)}
+
+    .tabs{display:grid; grid-template-columns:1fr 1fr; margin-bottom:18px; background:rgba(255,255,255,0.04); border-radius:12px; overflow:hidden}
+    .tabs label{text-align:center; padding:12px; font-weight:700; cursor:pointer; color:var(--muted)}
+
+    .auth-card input[type="radio"]{display:none}
+    input[type="radio"] {
+      appearance: auto;
+      -webkit-appearance: radio;
+      opacity: 1;
+      visibility: visible;
+      display: inline-block !important;
+      position: static !important;
+    }
+
+    input[type="radio"].form-control {
+      width: auto;
+      height: auto;
+    }
+
+    .form-check-input[type="radio"] {
+      appearance: auto;
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+      accent-color: #0d6efd;
+      background-color: #fff !important;
+      border: 1px solid #0d6efd;
+    }
+
+    .form-check-input[type="radio"]:checked {
+      background-color: #0d6efd;
+      border-color: #0d6efd;
+    }
+
+    .camp-photos{
+      display:grid; grid-template-columns:1fr 1fr 1fr 1fr 1fr; justify-content:space-around;gap:20px
+    }
+    .countdown{
+      display: inline-block;
+      background: orange;
+      color: #FFFFFF;
+      line-height: 1;
+      padding: 4px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    #login:checked ~ .tabs label[for="login"],
+    #register:checked ~ .tabs label[for="register"]{background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#061025}
+
+    .star-rating input{
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      border:1px solid #dddddd;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+      display:inline-block;
+      cursor:pointer;
+    }
+
+    .form{display:none}
+    #login:checked ~ .form-login{display:block}
+    #register:checked ~ .form-register{display:block}
+
+    .form h2{margin:0 0 14px 0}
+    .field{display:flex; flex-direction:column; gap:6px; margin-bottom:14px}
+    .field label{font-size:13px; color:var(--muted)}
+    .field input,select{padding:12px 14px; border-radius:12px; border:1px solid #9E9E9E; background:transparent; color:inherit}
+
+    .btn{display:inline-flex; align-items:center; justify-content:center; padding:12px 16px; border-radius:12px; font-weight:700; border:none}
+    .btn-ghost{background:transparent; border:1px solid rgba(255,255,255,0.08); color:var(--muted)}
+
+    .auth-footer{margin-top:12px; font-size:13px; color:var(--muted); text-align:center}
+  </style>
  <!-- Ana İçerik -->
   <main class="auth-wrap">
     <div class="auth-card">
