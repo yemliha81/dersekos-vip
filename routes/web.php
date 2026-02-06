@@ -130,6 +130,9 @@ Route::get('/vip-paketler/satin-al/{id}', 'App\Http\Controllers\HomeController@p
 //vip.package.purchase.post
 Route::post('/vip-paketler/satin-al', 'App\Http\Controllers\HomeController@purchaseVipPackagePost')->name('vip.package.purchase.post');
 
+// about route
+Route::get('/hakkimizda', 'App\Http\Controllers\HomeController@about')->name('about');
+
 
 
 
