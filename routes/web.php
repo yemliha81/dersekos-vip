@@ -132,6 +132,16 @@ Route::post('/vip-paketler/satin-al', 'App\Http\Controllers\HomeController@purch
 
 // about route
 Route::get('/hakkimizda', 'App\Http\Controllers\HomeController@about')->name('about');
+//contact route
+Route::get('/iletisim', 'App\Http\Controllers\HomeController@contact')->name('contact.page');
+
+//iade page
+Route::get('/teslimat-iade', 'App\Http\Controllers\HomeController@refund')->name('refund.page');
+
+// privacy page
+Route::get('/gizlilik-politikasi', 'App\Http\Controllers\HomeController@privacy')->name('privacy.page');
+// contract page
+Route::get('/mesafeli-satis-sozlesmesi', 'App\Http\Controllers\HomeController@contract')->name('contract.page');
 
 
 

@@ -208,7 +208,37 @@ class HomeController extends Controller
 
         //return view('page', compact('page'));
     }
+
+
+    //about page
+    public function about()
+    {
+        return view('about');
+    }
+
+    //about page
+    public function contact()
+    {
+        return view('contact');
+    }
+
+    //rfund page
+    public function refund()
+    {
+        return view('teslimat-iade');
+    }
+
+    //privacy page
+    public function privacy()
+    {
+        return view('gizlilik');
+    }
     
+    //contract page
+    public function contract()
+    {
+        return view('sozlesme');
+    }
 
     
 }
