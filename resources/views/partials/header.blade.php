@@ -235,8 +235,14 @@
                     
                 </div>
                 <div>
-                    <a href="{{ route('student.login') }}">Giriş yap / Üye ol</a>
-                    <a href="{{ route('cart.index') }}">Sepetim</a>
+                    @if(Auth::check())
+                        <a href="{{ route('student.dashboard') }}">Hesabım</a>
+                        <a href="{{ route('student.cart.index') }}">Sepetim</a>
+                        <a href="{{ route('student.logout') }}">Çıkış Yap</a>
+                    @else
+                        <a href="{{ route('student.login') }}">Giriş yap / Üye ol</a>
+                        <a href="{{ route('student.cart.index') }}">Sepetim</a>
+                    @endif
                 </div>
             </div>
         </div>

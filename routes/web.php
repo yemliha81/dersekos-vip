@@ -26,13 +26,15 @@ Route::get('/banned',
 // wrap student routes with auth middleware
 // Student Dashboard route
 Route::get('/student/dashboard', 'App\Http\Controllers\StudentController@dashboard')->middleware('auth:student')->name('student.dashboard');
-Route::get('/student/dashboard234', 'App\Http\Controllers\StudentController@dashboard2')->middleware('auth:student')->name('student.dashboard2');
-Route::get('/student/dashboard234', 'App\Http\Controllers\StudentController@dashboard2')->middleware('auth:student')->name('student.dashboard2');
 Route::get('/student/old-lessons', 'App\Http\Controllers\StudentController@oldEvents')->middleware('auth:student')->name('student.old_lessons');
 Route::post('/student/event-rate', 'App\Http\Controllers\StudentController@rateEvent')->middleware('auth:student')->name('student.event_rate');
 Route::post('/student/join-free-lesson/{id}', 'App\Http\Controllers\StudentController@joinToEvent')->middleware('auth:student')->name('student.join_free_lesson');
 
-
+// cart routes
+Route::get('/sepetim', 'App\Http\Controllers\CartController@index')->name('student.cart.index');
+Route::post('/cart/add', 'App\Http\Controllers\CartController@addToCart')->name('student.cart.add');
+Route::post('/cart/remove', 'App\Http\Controllers\CartController@removeFromCart')->name('student.cart.remove');
+Route::get('/cart/empty', 'App\Http\Controllers\CartController@emptyCart')->name('student.cart.empty');
 
 
 // teacher routes
@@ -128,11 +130,7 @@ Route::get('/vip-paketler/satin-al/{id}', 'App\Http\Controllers\HomeController@p
 //vip.package.purchase.post
 Route::post('/vip-paketler/satin-al', 'App\Http\Controllers\HomeController@purchaseVipPackagePost')->name('vip.package.purchase.post');
 
-// cart routes
-Route::get('/sepetim', 'App\Http\Controllers\CartController@index')->name('cart.index');
-Route::post('/cart/add', 'App\Http\Controllers\CartController@addToCart')->name('cart.add');
-Route::post('/cart/remove', 'App\Http\Controllers\CartController@removeFromCart')->name('cart.remove');
-Route::get('/cart/empty', 'App\Http\Controllers\CartController@emptyCart')->name('cart.empty');
+
 
 
 

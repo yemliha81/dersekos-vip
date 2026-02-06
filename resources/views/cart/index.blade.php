@@ -44,7 +44,7 @@
                                         <td>1</td>
                                         <td>{{ number_format($item['price'] * 1) }} ₺</td>
                                         <td>
-                                            <form action="{{ route('cart.remove') }}" method="POST" style="display:inline;">
+                                            <form action="{{ route('student.cart.remove') }}" method="POST" style="display:inline;">
                                                 @csrf
                                                 <input type="hidden" name="item_id" value="{{ $item['id'] }}">
                                                 <button type="submit" class="btn btn-danger btn-sm">Kaldır</button>

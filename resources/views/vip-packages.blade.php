@@ -54,7 +54,7 @@
                             <p>Aylık: {{ $package->price }} TL</p>
                         </div>
                         <div>
-                            <a href="{{ route('cart.add', $package->id) }}" class="btn btn-primary add-to-cart-btn" data-package-id="{{ $package->id }}">Sepete Ekle</a>
+                            <a href="{{ route('student.cart.add', $package->id) }}" class="btn btn-primary add-to-cart-btn" data-package-id="{{ $package->id }}">Sepete Ekle</a>
                         </div>
                     </div>
                 @endforeach
@@ -75,7 +75,7 @@
                     e.preventDefault();
                     var packageId = $(this).data('package-id');
                     $.ajax({
-                        url: '{{ route("cart.add") }}',
+                        url: '{{ route("student.cart.add") }}',
                         method: 'POST',
                         data: {
                             _token: '{{ csrf_token() }}',
@@ -84,7 +84,7 @@
                         success: function(response) {
                             alert('Paket sepete eklendi!');
                             //redirect to cart page
-                            window.location.href = '{{ route("cart.index") }}';
+                            window.location.href = '{{ route("student.cart.index") }}';
                         },
                         error: function(xhr) {
                             alert('Sepete eklenirken bir hata oluştu.');
