@@ -10,7 +10,7 @@
                     <div>
                         <div class="banner-text">
                             <h1 style=" color: #222222;">Derse Koş VIP ile <br>hep bir adım önde olun!</h1>
-                            <p style="color: #222222;">Derseko's VIP üyeliği ile birçok ayrıcalığa sahip olabilirsiniz. VIP üyelerimize özel içerikler, indirimler ve daha fazlası sizi bekliyor!</p>
+                            <p style="color: #222222;">Derse Koş VIP üyeliği ile birçok ayrıcalığa sahip olabilirsiniz. VIP üyelerimize özel içerikler, indirimler ve daha fazlası sizi bekliyor!</p>
                             <a class="banner-button" href="{{ route('vip.packages') }}">Paketleri İncele</a>
                         </div>
                     </div>
