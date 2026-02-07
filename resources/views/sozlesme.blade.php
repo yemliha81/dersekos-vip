@@ -21,7 +21,7 @@
                             Satıcı: dersekos.vip<br>
                             Web sitesi: https://www.dersekos.vip<br>
 <br><br>
-                            E-posta: info@dersekos.vip<br>
+                            E-posta: info@dersekos.com<br>
                             Telefon: +90 530 226 01 55<br><br>
 <br><br>
                             Alıcı:<br>

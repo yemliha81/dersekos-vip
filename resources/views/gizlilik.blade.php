@@ -74,7 +74,7 @@
 
                             Verilerinin hangi amaçla kullanıldığını öğrenebilir.<br>
 
-                            Bu talepler için info@dersekos.vip<br>
+                            Bu talepler için info@dersekos.com<br>
                             adresinden bizimle iletişime geçebilirsiniz.<br><br>
 
                             7. Değişiklikler<br>
@@ -85,7 +85,7 @@
 
                             Gizlilik politikamızla ilgili sorularınız için:<br>
 
-                            E-posta: info@dersekos.vip<br>
+                            E-posta: info@dersekos.com<br>
 
                             Web: https://www.dersekos.vip<br>
                         </div>

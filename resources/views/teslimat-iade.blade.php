@@ -59,7 +59,7 @@
 
                             Teslimat ve iade süreçleriyle ilgili her türlü soru için bizimle iletişime geçebilirsiniz:<br>
 
-                            E-posta: info@dersekos.vip<br>
+                            E-posta: info@dersekos.com<br>
 
                             Web sitesi: https://www.dersekos.vip<br>
                         </div>
