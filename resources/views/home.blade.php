@@ -14,8 +14,8 @@
                             <a class="banner-button" href="{{ route('vip.packages') }}">Paketleri İncele</a>
                         </div>
                     </div>
-                    <div style="text-align:right">
-                        <img class="image-switcher" src="{{env('HTTP_DOMAIN')}}/img/vip-banner-1.png" image2="img/vip-banner-2.png" width="80%" alt="Banner" />
+                    <div class="banner-image">
+                        <img class="image-switcher" src="{{env('HTTP_DOMAIN')}}/img/vip-banner-1.png" image2="img/vip-banner-2.png" alt="Banner" />
                     </div>
                 </div>
                 

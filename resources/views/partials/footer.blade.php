@@ -16,6 +16,25 @@
       </div>
     </div>
   </footer>
-  
+<!-- jquery cdn --> 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  // nav-toggle click event
+  document.querySelector('.nav-toggle').addEventListener('click', function() {
+    var topNavbar = document.querySelector('.top-navbar');
+    if (topNavbar.style.display === 'flex') {
+      //hide with slide down effect with jQuery
+      $(topNavbar).slideUp();
+      
+    } else {
+      //topNavbar.style.display = 'flex';
+      //show with slide down effect with jQuery
+      $(topNavbar).slideDown();
+      $('.top-navbar').css('display', 'flex');
+      
+    }
+  });
+</script>
+
   </body>
 </html>

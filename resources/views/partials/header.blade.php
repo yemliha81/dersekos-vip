@@ -34,6 +34,14 @@
             font-family: "SN Pro", sans-serif;
             
         }
+        .nav-toggle{
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 32px;
+            cursor: pointer;
+        }
         .logo-div{
             background-color: #222222;
             
@@ -41,6 +49,15 @@
         .logo-bar {
             padding: 10px 0;
             text-align: center;
+        }
+        .logo-bar img{
+            height: 160px;
+        }
+        .banner-image{
+            text-align: right;
+        }
+        .banner-image img{
+            width: 80%;
         }
         .top-nav-wrapper{
             background-color: #f8f9fa;
@@ -96,6 +113,7 @@
             border-radius: 5px;
             font-size: 1rem;
             cursor: pointer;
+            text-decoration:none;
         }
         .services{
             margin-top: 50px;
@@ -200,6 +218,80 @@
         .has-children:hover .sub-menu {
             display: block;
         }
+
+        @media (max-width: 768px) {
+            .logo-bar img{
+                height: 120px;
+            }
+            .nav-toggle {
+                display: block;
+                color:#FFFFFF
+            }
+            .top-navbar {
+                display:none;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links-1{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+            .nav-links-2{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+            .nav-links-2 a:last-child{
+                border:0 !important;
+            }
+            .top-navbar a {
+                padding: 10px;
+                margin: 0;
+                border-bottom: 1px solid #000000;
+                transition: all ease 0.3s;
+            }
+            .top-navbar a:hover {
+                background-color: #000000;
+                color: #FFFFFF;
+                text-decoration:none;
+            }
+            .banner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .banner-text {
+                align-items: center;
+            }
+            .services {
+                grid-template-columns: 1fr;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .banner-image{
+                text-align: center;
+            }
+            .banner-image img{
+                width: 100%;
+            }
+            .top-nav-wrapper{
+                position: absolute;
+                top: 140px;
+                width: 100%;
+                z-index: 999;
+            }
+            .banner-text{
+                padding:10px;
+                gap:0;
+            }
+            .banner-text h1{
+                font-size:32px;
+            }
+            .banner-text p{
+                font-size:18px;
+            }
+        }
         
     </style>
 </head>
@@ -209,25 +301,24 @@
         <div class="container">
             <div class="logo-bar">
                 <a href="{{env('HTTP_DOMAIN')}}" >
-                  <img src="{{ asset('img/dersekos-vip-logo-1.jpg') }}" width="300" alt="Logo" />
+                  <img src="{{ asset('img/dersekos-vip-logo-1.jpg') }}" alt="Derse Koş VIP Logo" />
                 </a>
             </div>
         </div>
-
     </div>
+    <a class="nav-toggle" href="javascript:;">
+        <i class="bi bi-list"></i>
+    </a>
     <div class="top-nav-wrapper">
         <div class="container">
             <div class="top-navbar">
-                <div>
+                <div class="nav-links-1">
                     <a href="{{env('HTTP_DOMAIN')}}">Anasayfa</a>
                     <a href="">Eğitmenlerimiz</a>
-                    <span class="has-children">
-                        <a href="{{ route('vip.packages') }}">Paketlerimiz</a>
-                        
-                    </span>
+                    <a href="{{ route('vip.packages') }}">Paketlerimiz</a>
                     
                 </div>
-                <div>
+                <div class="nav-links-2">
                     @if(Auth::check())
                         <a href="{{ route('student.dashboard') }}">Hesabım</a>
                         <a href="{{ route('student.cart.index') }}">Sepetim</a>
