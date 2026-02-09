@@ -16,7 +16,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center mb-50 mt-50 lead-text">
-                        <h1 class="mb-20">Eğitmenlerimiz</h1>
+                        <h1 class="mb-5 mt-5">Eğitmenlerimiz</h1>
                         
                         <div class="teachers-list">
                             @foreach($teachers as $teacher)
