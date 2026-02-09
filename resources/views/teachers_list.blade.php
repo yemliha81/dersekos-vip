@@ -24,7 +24,7 @@
                                     @if($teacher->image == null)
                                         <img src="{{ asset('assets/img/default-image.png') }}" class="profile-img" width="80" alt="">
                                     @else
-                                    <img src="{{ asset($teacher->image) }}" class="profile-img" width="80" alt="">
+                                    <img src="{{ env('IMAGE_DOMAIN') . '/' . $teacher->image }}" class="profile-img" width="80" alt="">
                                     @endif
                                     <div style=""><strong>{{ $teacher->name }} {{ $teacher->surname }}</strong></div>
                                     <span class="">{{ ucwords(str_replace('_', ' ',   $teacher->branch)) }} </span>
