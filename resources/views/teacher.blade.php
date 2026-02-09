@@ -12,7 +12,7 @@
        @if($teacher->image == null)
             <img src="{{ asset('assets/img/default-image.png') }}" class="profile-img avatar" width="80" alt="">
         @else
-        <img src="{{ asset($teacher->image) }}" class="profile-img avatar" width="80" alt="">
+        <img src="{{ env('APP_URL') . '/' . $teacher->image }}" class="profile-img avatar" width="80" alt="">
         @endif
       </div>
 
