@@ -85,10 +85,11 @@ class EventsController extends Controller
 
         // list events with same grade and time
         if($request->is_free == 1){
+
+        
         
             $existing_free_events = Event::where('grade', $request->grade)
                 ->where('is_free', '1')
-                ->where('start', Carbon::parse($request->start))
                 ->where(function($query) use ($request) {
                     $query->whereBetween('start', [Carbon::parse($request->start), Carbon::parse($request->end)])
                         ->orWhereBetween('end', [Carbon::parse($request->start), Carbon::parse($request->end)]);

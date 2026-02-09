@@ -16,6 +16,7 @@ class Teacher extends Authenticatable
     protected $primaryKey = 'id';
 
     protected $fillable = [
+        'is_vip',
         'name',
         'email',
         'password',

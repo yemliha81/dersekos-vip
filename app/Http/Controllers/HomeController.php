@@ -240,5 +240,17 @@ class HomeController extends Controller
         return view('sozlesme');
     }
 
+    public function teachersList(){
+        $teachers = Teacher::where(['status' => 1, 'is_vip' => 1])
+        //where image is not null and not empty first
+        ->orderByRaw("CASE 
+            WHEN image IS NULL OR image = '' THEN 1 
+            ELSE 0 
+        END")
+        ->orderBy('id')
+        ->get();
+        return view('teachers_list', compact('teachers'));
+    }  
+
     
 }

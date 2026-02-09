@@ -314,7 +314,7 @@
             <div class="top-navbar">
                 <div class="nav-links-1">
                     <a href="{{env('HTTP_DOMAIN')}}">Anasayfa</a>
-                    <a href="">Eğitmenlerimiz</a>
+                    <a href="{{ route('teachers.list') }}">Eğitmenlerimiz</a>
                     <a href="{{ route('vip.packages') }}">Paketlerimiz</a>
                     
                 </div>
