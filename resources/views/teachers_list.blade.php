@@ -20,6 +20,7 @@
         }
         .teacher-card img{
             height: 120px;
+            width: auto;
         }
     </style>
   <div class="">
