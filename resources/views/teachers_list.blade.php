@@ -10,6 +10,17 @@
             gap: 20px;
             justify-content: center;
         }
+        .teacher-card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 20px; border: 1px solid #ddd; border-radius: 10px;
+        }
+        .teacher-card img{
+            height: 120px;
+        }
     </style>
   <div class="">
         <section>
@@ -20,7 +31,7 @@
                         
                         <div class="teachers-list">
                             @foreach($teachers as $teacher)
-                                <div style="padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+                                <div class="teacher-card">
                                     @if($teacher->image == null)
                                         <img src="{{ asset('assets/img/default-image.png') }}" class="profile-img" width="80" alt="">
                                     @else
