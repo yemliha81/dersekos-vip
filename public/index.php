@@ -13,7 +13,7 @@
     </style>
 </head>
 <body style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh">
-    <img src="https://dersekos.vip/img/dersekos-vip-logo-1.jpg" width="240" alt="">
+    <img src="https://dersekos.vip/img/dersekos-vip-logo-1.jpg" width="300" alt="">
     <h3>Çok Yakında!</h3>
 </body>
 </html>
