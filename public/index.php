@@ -1,5 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #222222;
+            color:#FFFFFF;
+        }
+    </style>
+</head>
+<body style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh">
+    <img src="https://dersekos.vip/img/dersekos-vip-logo-1.jpg" width="240" alt="">
+    <h3>Çok Yakında!</h3>
+</body>
+</html>
+
 <?php
-die('Çok Yakında!');
+die();
 // display all php errors
 //die('Güncelleme çalışması yapılmaktadır. Lütfen birkaç dakika içinde tekrar deneyiniz.');
 //echo 'Şu anda teknik bir sorun yaşamaktayız. Ders linklerimizi geçici olarak buradan paylaşıyoruz. <br/>';
