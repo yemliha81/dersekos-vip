@@ -18,6 +18,7 @@ use App\Models\Teacher;
 use App\Models\Event;
 use App\Models\Campaign;
 use App\Models\VipPackage;
+use App\Models\ExamStudent;
 use Illuminate\Support\Facades\DB;
 
 
@@ -25,7 +26,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        //die(bcrypt('drs123*'));
+        //die(bcrypt('drs2026*'));
         // cache teachers for 60 minutes
         $teachers = cache()->remember('teachers', 60, function () {
             return Teacher::orderByRaw("
@@ -251,6 +252,22 @@ class HomeController extends Controller
         ->get();
         return view('teachers_list', compact('teachers'));
     }  
+
+    public function testUrl(){
+        //return json data
+        try {
+            $answers = [['1:A', '2:B', '3:C', '4:D', '5:E', '6:F', '7:G', '8:H', '9:I', '10:J', '11:K', '12:L', '13:M', '14:N', '15:O', '16:P', '17:Q', '18:R', '19:S', '20:T', '21:U', '22:V', '23:W', '24:X', '25:Y', '26:Z']];
+            $examStudent = new ExamStudent();
+            $examStudent->exam_id = 1;
+            $examStudent->student_id = 5;
+            $examStudent->answers = json_encode($answers);
+            $examStudent->save();  
+            return response()->json(['status' => 200]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+        
+    }
 
     
 }

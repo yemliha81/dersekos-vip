@@ -54,7 +54,7 @@
                             <p>Aylık: {{ $package->price }} TL</p>
                         </div>
                         <div>
-                            <a href="{{ route('student.cart.add', $package->id) }}" class="btn btn-primary add-to-cart-btn" data-package-id="{{ $package->id }}">Sepete Ekle</a>
+                            <a href="{{ route('student.cart.add', $package->id) }}" class="btn btn-primary add-to-cart-btn" data-package-id="{{ $package->id }}" data-package-type="package">Sepete Ekle</a>
                         </div>
                     </div>
                 @endforeach
@@ -79,7 +79,8 @@
                         method: 'POST',
                         data: {
                             _token: '{{ csrf_token() }}',
-                            package_id: packageId
+                            package_id: packageId,
+                            item_type: 'package'
                         },
                         success: function(response) {
                             alert('Paket sepete eklendi!');

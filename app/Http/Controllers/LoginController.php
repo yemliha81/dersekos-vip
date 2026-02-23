@@ -36,7 +36,7 @@ class LoginController extends Controller
         // Attempt to log the user in
         if (auth('student')->attempt($credentials)) {
             // Authentication passed...
-            return redirect()->route('student.dashboard');
+            return redirect()->intended();
         }
 
         // Authentication failed...

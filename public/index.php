@@ -1,4 +1,5 @@
 <?php
+die('Çok Yakında!');
 // display all php errors
 //die('Güncelleme çalışması yapılmaktadır. Lütfen birkaç dakika içinde tekrar deneyiniz.');
 //echo 'Şu anda teknik bir sorun yaşamaktayız. Ders linklerimizi geçici olarak buradan paylaşıyoruz. <br/>';

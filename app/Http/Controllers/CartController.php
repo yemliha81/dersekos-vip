@@ -28,28 +28,38 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
-        $itemId = $request->input('package_id');
 
-        //dd($itemId);
+        $itemType = $request->input('item_type');
 
-        $VipPackage = VipPackage::find($itemId);
+        if($itemType == "lesson"){
+            $itemId = $request->input('teacher_id');
+            $teacher = Teacher::find($itemId);
+            $name = $teacher->name. ' - ' .$teacher->branch.' Özel ders';
+            $price = $teacher->lesson_price;
+        }
 
-        
+        if($itemType == "package"){
+            $itemId = $request->input('package_id');
+            $package = VipPackage::find($itemId);
+            $name = $package->title;
+            $price = $package->price;
+        }
 
         $cart = session()->get('cart', []);
 
         // Check if item already in cart
         foreach ($cart as &$item) {
-            if ( $item['id'] === $itemId) {
-                return redirect()->back()->with('success', 'Ürün zaten sepetinizde.');
+            if ( ($item['id'] == $itemId) && ($item['type'] == $itemType) ) {
+                return redirect()->back()->with('error', 'Ürün zaten sepetinizde.');
             }
         }
 
         // Add new item to cart
         $cart[] = [
+            'type' => $itemType,
             'id' => $itemId,
-            'name' => $VipPackage->title,
-            'price' => $VipPackage->price,
+            'name' => $name,
+            'price' => $price,
         ];
 
         session()->put('cart', $cart);

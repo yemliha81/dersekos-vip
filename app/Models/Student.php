@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\StudentParent;
 
 class Student extends Authenticatable
 {
@@ -36,4 +37,11 @@ class Student extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function studentParent()
+    {
+        return $this->hasOne(StudentParent::class, 'student_id', 'id');
+    }
+
+    //
 }

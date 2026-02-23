@@ -29,6 +29,7 @@ Route::get('/student/dashboard', 'App\Http\Controllers\StudentController@dashboa
 Route::get('/student/old-lessons', 'App\Http\Controllers\StudentController@oldEvents')->middleware('auth:student')->name('student.old_lessons');
 Route::post('/student/event-rate', 'App\Http\Controllers\StudentController@rateEvent')->middleware('auth:student')->name('student.event_rate');
 Route::post('/student/join-free-lesson/{id}', 'App\Http\Controllers\StudentController@joinToEvent')->middleware('auth:student')->name('student.join_free_lesson');
+Route::post('/veli-kayit', 'App\Http\Controllers\StudentController@saveParent')->middleware('auth:student')->name('student.save.parent');
 
 // cart routes
 Route::get('/sepetim', 'App\Http\Controllers\CartController@index')->name('student.cart.index');
@@ -144,6 +145,10 @@ Route::get('/gizlilik-politikasi', 'App\Http\Controllers\HomeController@privacy'
 Route::get('/mesafeli-satis-sozlesmesi', 'App\Http\Controllers\HomeController@contract')->name('contract.page');
 
 Route::get('/ogretmenler', 'App\Http\Controllers\HomeController@teachersList')->name('teachers.list');
+Route::get('/test-url', 'App\Http\Controllers\HomeController@testUrl')->name('test.url');
+
+Route::get('/odeme', 'App\Http\Controllers\IyzicoController@pay')->middleware('auth:student')->name('student.iyzico.pay');
+Route::post('/iyzico-callback', 'App\Http\Controllers\IyzicoController@callback')->name('iyzico.callback');
 
 
 

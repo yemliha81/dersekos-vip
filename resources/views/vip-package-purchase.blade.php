@@ -21,7 +21,6 @@
                     </div>
 
                     <div class="credit card-payment-details">
-
                         <form action="{{ route('vip.package.purchase.post') }}" method="post">
                             @csrf
                             <input type="hidden" name="id" value="{{ $vip_package->id }}">
