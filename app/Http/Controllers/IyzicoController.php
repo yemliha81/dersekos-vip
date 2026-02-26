@@ -150,7 +150,7 @@ class IyzicoController extends Controller
 
     public function callback(Request $request)
     {
-        dd($request->all());
+        
         $options = new Options();
         if(env('IYZICO_MODE') == "test"){
 
