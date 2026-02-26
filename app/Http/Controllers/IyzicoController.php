@@ -159,21 +159,21 @@ class IyzicoController extends Controller
     {
         
         $options = new Options();
-        if(env('IYZICO_MODE') == "test"){
+        //if(env('IYZICO_MODE') == "test"){
 
             $options->setApiKey(config('iyzico.sandbox_api_key'));
             $options->setSecretKey(config('iyzico.sandbox_secret_key'));
             $options->setBaseUrl(config('iyzico.sandbox_base_url'));
 
-        }
+        //}
 
-        if(env('IYZICO_MODE') == "live"){
+        /*if(env('IYZICO_MODE') == "live"){
 
             $options->setApiKey(config('iyzico.api_key'));
             $options->setSecretKey(config('iyzico.secret_key'));
             $options->setBaseUrl(config('iyzico.base_url'));
 
-        }
+        }*/
 
         $retrieveRequest = new RetrieveCheckoutFormRequest();
         $retrieveRequest->setToken($request->token);
