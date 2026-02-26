@@ -10,6 +10,7 @@ use App\Models\EventRate;
 use App\Models\Quiz;
 use App\Models\StudentParent;
 use App\Models\Student;
+use App\Models\ParentOrder;
 use Illuminate\Support\Facades\DB;
 
 
@@ -231,6 +232,21 @@ class StudentController extends Controller
         } catch (\Throwable $th) {
             dd($th);
         }
+    }
+
+    public function paymentSuccess(){
+        $basketId = session('basket_id');
+
+        //Find ParentOrder
+        $parentOrder = ParentOrder::where('order_id', $basketId)->first();
+
+
+
+        return view('student.payment_success', compact('parentOrder'));
+    }
+
+    public function paymentFailure(){
+        return view('student.payment_failure');
     }
 
     

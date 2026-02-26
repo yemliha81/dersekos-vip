@@ -31,6 +31,9 @@ Route::post('/student/event-rate', 'App\Http\Controllers\StudentController@rateE
 Route::post('/student/join-free-lesson/{id}', 'App\Http\Controllers\StudentController@joinToEvent')->middleware('auth:student')->name('student.join_free_lesson');
 Route::post('/veli-kayit', 'App\Http\Controllers\StudentController@saveParent')->middleware('auth:student')->name('student.save.parent');
 
+Route::get('/odeme-basarili', 'App\Http\Controllers\StudentController@paymentSuccess')->middleware('auth:student')->name('student.iyzico.success');
+Route::get('/odeme-basarisiz', 'App\Http\Controllers\StudentController@paymentFailure')->middleware('auth:student')->name('student.iyzico.failure');
+
 // cart routes
 Route::get('/sepetim', 'App\Http\Controllers\CartController@index')->name('student.cart.index');
 Route::post('/cart/add', 'App\Http\Controllers\CartController@addToCart')->name('student.cart.add');
@@ -148,7 +151,6 @@ Route::get('/ogretmenler', 'App\Http\Controllers\HomeController@teachersList')->
 Route::get('/test-url', 'App\Http\Controllers\HomeController@testUrl')->name('test.url');
 
 Route::get('/odeme', 'App\Http\Controllers\IyzicoController@pay')->middleware('auth:student')->name('student.iyzico.pay');
-Route::get('/odeme-basarili', 'App\Http\Controllers\IyzicoController@success')->middleware('auth:student')->name('student.iyzico.success');
 Route::post('/iyzico-callback', 'App\Http\Controllers\IyzicoController@callback')->name('iyzico.callback');
 
 

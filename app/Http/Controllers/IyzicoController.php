@@ -30,6 +30,11 @@ class IyzicoController extends Controller
     {
         $student = Student::find(auth()->guard('student')->user()->id)->with('studentParent')->first();
 
+        //dd(session());
+        // get session_id
+        $sessionId = session()->getId();
+        //dd($sessionId);
+
         $cartItems = session()->get('cart', []); 
         $totalPrice = 0;
         foreach ($cartItems as $item) {
@@ -38,12 +43,15 @@ class IyzicoController extends Controller
 
         if($student->studentParent){
         $orderId = md5('00' . $student->id . date('Y-m-d H:i'));
+
+        session(['basket_id' => $orderId]);
+
         // insert data into parent_order_table, student_id, parent_id, cart_data, payment_data, total_price with DB facade
+        //dd($sessionId);
         ParentOrder::updateOrCreate(
         ['order_id' => $orderId, 'student_id' => $student->id],
         [
-            
-            'student_id' => $student->id,
+            'session_id' =>  $sessionId,
             'parent_id' => $student->studentParent->id,
             'cart_data' => json_encode($cartItems),
             'payment_data' => '-',
@@ -67,19 +75,18 @@ class IyzicoController extends Controller
             $options->setBaseUrl(config('iyzico.base_url'));
 
         }
-
-        
-
         
 
         $request = new CreateCheckoutFormInitializeRequest();
         $request->setLocale(\Iyzipay\Model\Locale::TR);
-        $request->setConversationId("123456789");
+        $request->setConversationId($orderId);
         $request->setPrice($this->decimalPrice($totalPrice));
         $request->setPaidPrice($this->decimalPrice($totalPrice));
         $request->setCallbackUrl(route('iyzico.callback'));
+        //$request->setPaymentSuccessUrl(route('iyzico.success'));
+        //$request->setPaymentFailureUrl(route('iyzico.failure'));
         $request->setCurrency(\Iyzipay\Model\Currency::TL);
-        $request->setBasketId("DRS-".uniqid());
+        $request->setBasketId($orderId);
         $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
 
 
@@ -127,7 +134,7 @@ class IyzicoController extends Controller
 
         $checkoutForm = CheckoutFormInitialize::create($request, $options);
 
-            
+            //dd($checkoutForm);
 
             return view('cart.payment', compact('checkoutForm', 'student'));
 
@@ -178,11 +185,38 @@ class IyzicoController extends Controller
 
             try {
                 // ödeme başarılı
-                dd($checkoutForm);
+                //dd($checkoutForm);
 
-                session()->forget('cart');
+                $basketId = $checkoutForm->getBasketId();
+                $rawResult = $checkoutForm->getRawResult();
 
-                return redirect()->route('student.iyzico.success');
+                //Find ParenOrder with order_id = basketId
+                $parentOrder = ParentOrder::where('order_id', $basketId)->first();
+                $parentOrder->is_paid = 1;
+                $parentOrder->payment_data = $rawResult;
+                $parentOrder->save();
+
+                $sessionId = $parentOrder->session_id;
+
+                    
+
+                if ($sessionId) {
+                    //Start session with $sessionId
+                    session()->start($sessionId);
+                    // Artık Auth::user() çalışacaktır
+
+                    //dd(session()->all());
+                    
+
+                    session()->forget('cart');
+
+                    return redirect()->route('student.iyzico.success')->with('success', 'Ödeme başarılı');
+                }
+                
+                
+
+                
+                //return response()->json(['status' => 'ok'], 200);
 
 
 
@@ -225,9 +259,7 @@ class IyzicoController extends Controller
         }
     }
 
-    public function success(){
-        return view('student.payment_success');
-    }
+    
 
 
 

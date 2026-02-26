@@ -15,6 +15,7 @@ class ParentOrder extends Model
 
     protected $fillable = [
         'order_id',
+        'session_id',
         'student_id',
         'parent_id',
         'cart_data',

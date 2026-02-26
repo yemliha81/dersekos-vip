@@ -18,7 +18,35 @@
 
             <div class="card-body"> 
               <div class="alert alert-success">
-                <p>Tebrikler! Ödemeniz başarıyla tamamlanmıştır.</p>
+                Tebrikler! Ödemeniz başarıyla tamamlanmıştır.
+              </div>
+              <div>
+                <div><b>Satın aldığınız hizmete ait bilgiler aşağıdadır.</b></div>
+                <div>
+                  <?php $orderData = json_decode($parentOrder->cart_data); 
+                    
+                  ?>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <td><b>Hizmet Türü</b></td>
+                        <td><b>Hizmet Adı</b></td>
+                        <td><b>Tutar</b></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($orderData as $item)
+
+                    <tr>
+                        <td>{{ $item->type == 'package' ? 'Okula Destek Paketi' : 'Bire bir Ders' }}</td>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->price }} ₺</td>
+                    </tr>
+
+                    @endforeach
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
