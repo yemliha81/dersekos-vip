@@ -16,6 +16,11 @@ use Iyzipay\Model\Address;
 use Iyzipay\Model\BasketItem;
 use Iyzipay\Model\BasketItemType;
 use App\Models\Student;
+use App\Models\ParentOrder;
+// DB Facade
+use DB;
+// use log
+use Log;
 
 class IyzicoController extends Controller
 {
@@ -25,96 +30,109 @@ class IyzicoController extends Controller
     {
         $student = Student::find(auth()->guard('student')->user()->id)->with('studentParent')->first();
 
-        //dd($student);
+        $cartItems = session()->get('cart', []); 
+        $totalPrice = 0;
+        foreach ($cartItems as $item) {
+            $totalPrice += $item['price'];
+        }
 
         if($student->studentParent){
+        $orderId = md5('00' . $student->id . date('Y-m-d H:i'));
+        // insert data into parent_order_table, student_id, parent_id, cart_data, payment_data, total_price with DB facade
+        ParentOrder::updateOrCreate(
+        ['order_id' => $orderId, 'student_id' => $student->id],
+        [
+            
+            'student_id' => $student->id,
+            'parent_id' => $student->studentParent->id,
+            'cart_data' => json_encode($cartItems),
+            'payment_data' => '-',
+            'total_price' => $totalPrice,
+        ]);
 
-            $cartItems = session()->get('cart', []); 
-            $totalPrice = 0;
-            foreach ($cartItems as $item) {
-                $totalPrice += $item['price'];
-            }
+        $options = new Options();
+
+        if(env('IYZICO_MODE') == "test"){
+
+            $options->setApiKey(config('iyzico.sandbox_api_key'));
+            $options->setSecretKey(config('iyzico.sandbox_secret_key'));
+            $options->setBaseUrl(config('iyzico.sandbox_base_url'));
+
+        }
+
+        if(env('IYZICO_MODE') == "live"){
+
+            $options->setApiKey(config('iyzico.api_key'));
+            $options->setSecretKey(config('iyzico.secret_key'));
+            $options->setBaseUrl(config('iyzico.base_url'));
+
+        }
+
         
-            $options = new Options();
 
-            if(env('IYZICO_MODE') == "test"){
+        
 
-                $options->setApiKey(config('iyzico.sandbox_api_key'));
-                $options->setSecretKey(config('iyzico.sandbox_secret_key'));
-                $options->setBaseUrl(config('iyzico.sandbox_base_url'));
+        $request = new CreateCheckoutFormInitializeRequest();
+        $request->setLocale(\Iyzipay\Model\Locale::TR);
+        $request->setConversationId("123456789");
+        $request->setPrice($this->decimalPrice($totalPrice));
+        $request->setPaidPrice($this->decimalPrice($totalPrice));
+        $request->setCallbackUrl(route('iyzico.callback'));
+        $request->setCurrency(\Iyzipay\Model\Currency::TL);
+        $request->setBasketId("DRS-".uniqid());
+        $request->setPaymentGroup(\Iyzipay\Model\PaymentGroup::PRODUCT);
 
-            }
 
-            if(env('IYZICO_MODE') == "live"){
+        $buyerId = "BY00".$student->studentParent->id;
+        $buyer = new Buyer();
+        $buyer->setId($buyerId);
+        $buyer->setName($student->studentParent->first_name);
+        $buyer->setSurname($student->studentParent->last_name);
+        $buyer->setGsmNumber($student->studentParent->phone);
+        $buyer->setEmail($student->studentParent->email);
+        $buyer->setIdentityNumber($student->studentParent->tc_no);
+        $buyer->setLastLoginDate(date('Y-m-d H:i:s'));
+        $buyer->setRegistrationDate(date('Y-m-d H:i:s'));
+        $buyer->setRegistrationAddress($student->studentParent->address);
+        $buyer->setIp(request()->ip());
+        $buyer->setCity($student->studentParent->city);
+        $buyer->setCountry("Turkey");
+        $buyer->setZipCode($student->studentParent->zipcode ?? null);
 
-                $options->setApiKey(config('iyzico.api_key'));
-                $options->setSecretKey(config('iyzico.secret_key'));
-                $options->setBaseUrl(config('iyzico.base_url'));
+        $request->setBuyer($buyer);
 
-            }
+        $billingAddress = new Address();
+        $billingAddress->setContactName($student->studentParent->first_name . " " . $student->studentParent->last_name);
+        $billingAddress->setCity($student->studentParent->city);
+        $billingAddress->setCountry("Turkey");
+        $billingAddress->setAddress($student->studentParent->address);
+        $billingAddress->setZipCode($student->studentParent->zipcode ?? null);
 
-            $request = new CreateCheckoutFormInitializeRequest();
-            $request->setLocale(Locale::TR);
-            $request->setConversationId(uniqid());
-            $request->setPrice($totalPrice);
-            $request->setPaidPrice($totalPrice);
-            $request->setCurrency(Currency::TL);
-            $request->setPaymentGroup(PaymentGroup::PRODUCT);
-            $request->setCallbackUrl(route('iyzico.callback'));
+        $request->setBillingAddress($billingAddress);
 
-            $buyerId = "BY00".$student->studentParent->id;
+        $basketItems = [];
 
-            $buyer = new Buyer();
-            $buyer->setId($buyerId);
-            $buyer->setName($student->studentParent->first_name);
-            $buyer->setSurname($student->studentParent->last_name);
-            $buyer->setGsmNumber($student->studentParent->phone);
-            $buyer->setEmail($student->studentParent->email);
-            $buyer->setIdentityNumber($student->studentParent->tc_no);
-            $buyer->setLastLoginDate(date('Y-m-d H:i:s'));
-            $buyer->setRegistrationDate(date('Y-m-d H:i:s'));
-            $buyer->setRegistrationAddress($student->studentParent->address);
-            $buyer->setIp(request()->ip());
-            $buyer->setCity($student->studentParent->city);
-            $buyer->setCountry("Turkey");
-            $buyer->setZipCode($student->studentParent->zipcode ?? null);
+        foreach ($cartItems as $item) {
+            $basketItem = new BasketItem();
+            $basketItem->setId($item['id']);
+            $basketItem->setName($item['name']);
+            $basketItem->setCategory1("Genel");
+            $basketItem->setItemType(BasketItemType::VIRTUAL);
+            $basketItem->setPrice($this->decimalPrice($item['price']));
+            $basketItems[] = $basketItem;
+        }
 
-            $request->setBuyer($buyer);
+        $request->setBasketItems($basketItems);
+        // ... request ayarları
+
+        $checkoutForm = CheckoutFormInitialize::create($request, $options);
 
             
-
-            $billingAddress = new Address();
-            $billingAddress->setContactName($student->studentParent->first_name . " " . $student->studentParent->last_name);
-            $billingAddress->setCity($student->studentParent->city);
-            $billingAddress->setCountry("Turkey");
-            $billingAddress->setAddress($student->studentParent->address);
-            $billingAddress->setZipCode($student->studentParent->zipcode ?? null);
-
-            $request->setBillingAddress($billingAddress);
-
-            
-
-            $basketItems = [];
-
-            foreach ($cartItems as $item) {
-                $basketItem = new BasketItem();
-                $basketItem->setId($item['id']);
-                $basketItem->setName($item['name']);
-                $basketItem->setCategory1("Genel");
-                $basketItem->setItemType(BasketItemType::VIRTUAL);
-                $basketItem->setPrice($item['price']);
-                $basketItems[] = $basketItem;
-            }
-
-            $request->setBasketItems($basketItems);
-
-            $checkoutForm = CheckoutFormInitialize::create($request, $options);
-
-            //dd($checkoutForm);
 
             return view('cart.payment', compact('checkoutForm', 'student'));
 
         }else{
+            
             $checkoutForm = null;
             return view('cart.payment', compact( 'student'));
         }
@@ -122,6 +140,11 @@ class IyzicoController extends Controller
         //dd($checkoutForm);
 
         
+    }
+
+    public function decimalPrice($price)
+    {
+        return number_format($price, 2, '.', '');
     }
     
 
@@ -150,8 +173,48 @@ class IyzicoController extends Controller
         $checkoutForm = CheckoutForm::retrieve($retrieveRequest, $options);
 
         if ($checkoutForm->getPaymentStatus() === "SUCCESS") {
-            // ödeme başarılı
-            $payment = json_decode($checkoutForm->getRawResult());
+
+
+            try {
+                // ödeme başarılı
+                dd($checkoutForm);
+
+                session()->forget('cart');
+
+                return redirect()->route('student.iyzico.success');
+
+
+
+            } catch (\Throwable $th) {
+
+            throw $th;
+            die();
+
+                // if DB save fails save data into log file
+                $log = new Log();
+                $payment = json_decode($checkoutForm->getRawResult());
+
+                $cartItems = session()->get('cart', []); 
+                $totalPrice = 0;
+                foreach ($cartItems as $item) {
+                    $totalPrice += $item['price'];
+                }
+
+                $student = auth('student')->user();
+
+                $log->student_id = $student->id;
+                $log->parent_id = $student->studentParent->id;
+                $log->cart_data = json_encode($cartItems);
+                $log->payment_data = json_encode($payment);
+                $log->total_price = $totalPrice;
+                $log->message = $th->getMessage();
+                $log->save();
+
+
+                //throw $th;
+            }
+
+            
 
             //
             
@@ -160,4 +223,11 @@ class IyzicoController extends Controller
             dd($checkoutForm);
         }
     }
+
+    public function success(){
+        return view('student.payment_success');
+    }
+
+
+
 }

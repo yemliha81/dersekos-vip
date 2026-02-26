@@ -319,7 +319,7 @@
                     
                 </div>
                 <div class="nav-links-2">
-                    @if(Auth::check())
+                    @if(auth('student')->check())
                         <a href="{{ route('student.dashboard') }}">Hesabım</a>
                         <a href="{{ route('student.cart.index') }}">Sepetim</a>
                         <a href="{{ route('student.logout') }}">Çıkış Yap</a>

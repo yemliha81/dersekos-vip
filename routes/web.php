@@ -148,6 +148,7 @@ Route::get('/ogretmenler', 'App\Http\Controllers\HomeController@teachersList')->
 Route::get('/test-url', 'App\Http\Controllers\HomeController@testUrl')->name('test.url');
 
 Route::get('/odeme', 'App\Http\Controllers\IyzicoController@pay')->middleware('auth:student')->name('student.iyzico.pay');
+Route::get('/odeme-basarili', 'App\Http\Controllers\IyzicoController@success')->middleware('auth:student')->name('student.iyzico.success');
 Route::post('/iyzico-callback', 'App\Http\Controllers\IyzicoController@callback')->name('iyzico.callback');
 
 
