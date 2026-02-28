@@ -17,6 +17,7 @@ use Iyzipay\Model\BasketItem;
 use Iyzipay\Model\BasketItemType;
 use App\Models\Student;
 use App\Models\ParentOrder;
+use App\Models\Order;
 // DB Facade
 use DB;
 // use log
@@ -190,62 +191,45 @@ class IyzicoController extends Controller
                 $basketId = $checkoutForm->getBasketId();
                 $rawResult = $checkoutForm->getRawResult();
 
-                //Find ParenOrder with order_id = basketId
+                //Find ParentOrder with order_id = basketId
                 $parentOrder = ParentOrder::where('order_id', $basketId)->first();
                 $parentOrder->is_paid = 1;
                 $parentOrder->payment_data = $rawResult;
                 $parentOrder->save();
 
-                $sessionId = $parentOrder->session_id;
+                // Save cart rows into order_table
+                $cartItems = json_decode($parentOrder->cart_data,1);
+                foreach ($cartItems as $item) {
+                    $order = new Order();
+                    $order->order_id = $parentOrder->order_id;
+                    $order->student_id = $parentOrder->student_id;
+                    $order->description = $item['name'];
+                    $order->price = $item['price'];
+                    $order->content_type = $item['type'];
+                    $order->content_id = $item['id'];
+                    $order->start_date = date('Y-m-d H:i:s');
+                    // end_date is 30 days after start_date
+                    $order->end_date = date('Y-m-d H:i:s', strtotime('+30 days'));
+                    $order->save();
+                }
 
-                    
+                $sessionId = $parentOrder->session_id;
 
                 if ($sessionId) {
                     //Start session with $sessionId
                     session()->start($sessionId);
-                    // Artık Auth::user() çalışacaktır
-
-                    //dd(session()->all());
-                    
-
                     session()->forget('cart');
 
                     return redirect()->route('student.iyzico.success')->with('success', 'Ödeme başarılı');
                 }
                 
-                
-
-                
-                //return response()->json(['status' => 'ok'], 200);
 
 
 
             } catch (\Throwable $th) {
 
-            throw $th;
-            die();
-
-                // if DB save fails save data into log file
-                $log = new Log();
-                $payment = json_decode($checkoutForm->getRawResult());
-
-                $cartItems = session()->get('cart', []); 
-                $totalPrice = 0;
-                foreach ($cartItems as $item) {
-                    $totalPrice += $item['price'];
-                }
-
-                $student = auth('student')->user();
-
-                $log->student_id = $student->id;
-                $log->parent_id = $student->studentParent->id;
-                $log->cart_data = json_encode($cartItems);
-                $log->payment_data = json_encode($payment);
-                $log->total_price = $totalPrice;
-                $log->message = $th->getMessage();
-                $log->save();
-
-
+                throw $th;
+                die();
                 //throw $th;
             }
 

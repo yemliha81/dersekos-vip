@@ -65,9 +65,19 @@ class HomeController extends Controller
     {
         $meta_title = "VIP Paketlerimiz";
 
-        $vip_packages = VipPackage::all();
+        $vip_packages = VipPackage::where('type', 'package')->get();
 
         return view('vip-packages', compact('meta_title', 'vip_packages'));
+
+    }
+
+    public function vipCamps()
+    {
+        $meta_title = "VIP Kamplarımız";
+
+        $vip_camps = VipPackage::where('type', 'camp')->get();
+
+        return view('vip-camps', compact('meta_title', 'vip_camps'));
 
     }
 

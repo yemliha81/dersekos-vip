@@ -5,31 +5,29 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class VipPackage extends Model
+class Order extends Model
 {
-    // soft deletes
-    use HasFactory, SoftDeletes;
-
-    protected $table = 'vip_packages';
+    protected $table = 'order_table';
 
     protected $primaryKey = 'id';
 
     public $timestamps = false;
 
     protected $fillable = [
-        'title',
-        'type',
+        'order_id',
+        'student_id',
         'description',
-        'image',
-        'grade',
-        'status',
+        'content_type',
+        'content_id',
         'price',
+        'start_date',
+        'end_date',
     ];
 
     // If you want to automatically cast created_at as datetime
     protected $dates = [
         'created_at',
-        'deleted_at',
+        
     ];
 
 }

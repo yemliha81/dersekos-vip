@@ -129,6 +129,7 @@ Route::post('/exam/{exam_id}/submit-answers', 'App\Http\Controllers\ExamControll
 
 // VIP Packages route
 Route::get('/vip-paketler', 'App\Http\Controllers\HomeController@vipPackages')->name('vip.packages');
+Route::get('/vip-kamplar', 'App\Http\Controllers\HomeController@vipCamps')->name('vip.camps');
 // VIP package purchase route
 Route::get('/vip-paketler/satin-al/{id}', 'App\Http\Controllers\HomeController@purchaseVipPackage')->name('vip.package.purchase');
 //vip.package.purchase.post

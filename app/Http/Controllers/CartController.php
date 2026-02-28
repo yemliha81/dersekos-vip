@@ -41,6 +41,13 @@ class CartController extends Controller
         if($itemType == "package"){
             $itemId = $request->input('package_id');
             $package = VipPackage::find($itemId);
+            $name = $package->grade. '. Sınıf - ' .$package->title. ' Paketi';
+            $price = $package->price;
+        }
+
+        if($itemType == "camp"){
+            $itemId = $request->input('package_id');
+            $package = VipPackage::find($itemId);
             $name = $package->title;
             $price = $package->price;
         }

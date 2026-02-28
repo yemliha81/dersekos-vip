@@ -362,31 +362,27 @@
         <div class="container">
             <!-- Sayfa Başlığı -->
             <div class="page-header mt-4">
-                <h1><i class="bi bi-stars me-3"></i>Eğitim Paketlerimiz<i class="bi bi-stars ms-3"></i></h1>
-                <p>Her sınıf seviyesine özel, kapsamlı ve sistematik eğitim programları</p>
+                <h1><i class="bi bi-pencil me-3"></i>Özel Kamplarımız<i class="bi bi-pencil ms-3"></i></h1>
+                <p>Her sınıf seviyesine özel, dönemsel kamplarımız</p>
             </div>
 
             <div class="row g-4">
-                @foreach($vip_packages as $package)
-                <!-- 5. SINIF PAKETİ - Taze Başlangıç -->
+                
+                @foreach($vip_camps as $camp)
                 <div class="col-12 col-lg-6 col-xl-3">
-                    
-                    <div class="card package-card package-{{$package->grade}}" {{ $package->grade == 8 ? 'style="position: relative; overflow: hidden;"' : '' }}>
-                        @if($package->grade == 8)
-                            <div class="lgs-badge">LGS HAZIRLIK</div>
-                        @endif
+                    <div class="card package-card package-{{$camp->grade}}">
                         <div class="card-header">
-                            <div class="class-badge badge-class">{{$package->grade}}. SINIF</div>
-                            <div class="package-title">{{$package->title}}</div>
-                            <div class="package-subtitle">{{$package->subtitle}}</div>
+                            <div class="class-badge badge-class">{{$camp->grade}}. SINIF</div>
+                            <div class="package-subtitle">{{$camp->title}}</div>
                         </div>
                         <div class="card-body">
-                            {!!$package->description!!}
+                            <div>
+                                {{$camp->description}}
+                            </div>
 
                             <div class="pricing-section">
-                                <div class="price-tag">{{$package->price}} ₺</div>
-                                <div class="price-period">Aylık</div>
-                                <button class="btn btn-package add-to-cart-btn" data-grade="{{ $package->grade }}" data-package-id="{{ $package->id }}" data-package-type="package">
+                                <div class="price-tag">{{$camp->price}} ₺</div>
+                                <button class="btn btn-package add-to-cart-btn"  data-grade="{{ $camp->grade }}" data-package-id="{{ $camp->id }}" data-package-type="camp">
                                     <i class="bi bi-cart-plus me-2"></i>Satın al
                                 </button>
                             </div>
@@ -394,96 +390,6 @@
                     </div>
                 </div>
                 @endforeach
-
-                <!-- 8. SINIF PAKETİ - LGS Maratonu -->
-                <!--<div class="col-12 col-lg-6 col-xl-3">
-                    <div class="card package-card package-8" style="position: relative; overflow: hidden;">
-                        <div class="lgs-badge">LGS HAZIRLIK</div>
-                        <div class="card-header">
-                            <div class="class-badge badge-class">8. SINIF</div>
-                            <div class="package-title">LGS Maratonu</div>
-                            <div class="package-subtitle">Tam Donanımlı Sınav Hazırlığı</div>
-                        </div>
-                        <div class="card-body">
-                            <ul class="features-list">
-                                <li class="feature-item">
-                                    <div class="feature-icon icon-float">
-                                        <i class="bi bi-camera-video-fill"></i>
-                                    </div>
-                                    <div class="feature-content">
-                                        <div class="feature-title">Canlı Dersler</div>
-                                        <div class="feature-desc">Haftada 15 LGS odaklı ders</div>
-                                    </div>
-                                    
-                                </li>
-                                
-                                <li class="feature-item">
-                                    <div class="feature-icon icon-pulse">
-                                        <i class="bi bi-file-earmark-text-fill"></i>
-                                    </div>
-                                    <div class="feature-content">
-                                        <div class="feature-title">Deneme Sınavları</div>
-                                        <div class="feature-desc">Ayda 1 deneme + LGS arşivi</div>
-                                    </div>
-                                    
-                                </li>
-
-                                <li class="feature-item">
-                                    <div class="feature-icon">
-                                        <i class="bi bi-journal-check"></i>
-                                    </div>
-                                    <div class="feature-content">
-                                        <div class="feature-title">Ödevlendirme</div>
-                                        <div class="feature-desc">Soru bankası ve deneme takibi</div>
-                                    </div>
-                                    
-                                </li>
-
-                                <li class="feature-item">
-                                    <div class="feature-icon icon-rotate">
-                                        <i class="bi bi-lightbulb-fill"></i>
-                                    </div>
-                                    <div class="feature-content">
-                                        <div class="feature-title">Koçluk Hizmeti</div>
-                                        <div class="feature-desc">Haftada 1 özel seanslar</div>
-                                    </div>
-                                    
-                                </li>
-
-                                <li class="feature-item">
-                                    <div class="feature-icon">
-                                        <i class="bi bi-bell-fill"></i>
-                                    </div>
-                                    <div class="feature-content">
-                                        <div class="feature-title">Veli Bilgilendirme</div>
-                                        <div class="feature-desc">Aylık rapor ve toplantı</div>
-                                    </div>
-                                    
-                                </li>
-
-                                <li class="feature-item">
-                                    <div class="feature-icon icon-pulse">
-                                        <i class="bi bi-bar-chart-line-fill"></i>
-                                    </div>
-                                    <div class="feature-content">
-                                        <div class="feature-title">Başarı Takibi</div>
-                                        <div class="feature-desc">İl/ilçe sıralaması ve analiz</div>
-                                    </div>
-                                    
-                                </li>
-                            </ul>
-
-                            <div class="pricing-section">
-                                <div class="price-tag">₺1.799</div>
-                                <div class="price-period">Aylık / 12 Taksit</div>
-                                <button class="btn btn-package">
-                                    <i class="bi bi-rocket me-2"></i>LGS'ye Hazırlan
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
-
             </div>
 
            
