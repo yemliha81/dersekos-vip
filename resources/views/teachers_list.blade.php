@@ -199,8 +199,10 @@
 
         .teacher-header {
             position: relative;
-            height: 120px;
+            height: 200px;
             overflow: hidden;
+            text-align: center;
+            padding: 20px;
         }
 
         .teacher-cover {
@@ -624,7 +626,7 @@
                     </div>
                     <div class="teacher-status"></div>
                     <div class="teacher-header">
-                        <img src="{{ env('APP_URL') . '/' . $teacher->image }}" class="profile-img" width="80" alt="">
+                        <img src="{{ env('APP_URL') . '/' . $teacher->image }}" class="profile-img" width="180" alt="">
                     </div>
                     <div class="teacher-body">
                         <h3 class="teacher-name">{{ $teacher->name }}</h3>
