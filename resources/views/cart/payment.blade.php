@@ -95,7 +95,7 @@
                             <input type="text" name="first_name" class="form-control" value="{{$student->studentParent->first_name ?? ''}}" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">ASoyad (Zorunlu)</label>
+                            <label class="form-label">Soyad (Zorunlu)</label>
                             <input type="text" name="last_name" class="form-control" value="{{$student->studentParent->last_name ?? ''}}" required>
                         </div>
                         <div class="mb-3">
@@ -132,6 +132,10 @@
                 <div id="iyzipay-checkout-form" class="responsive">
                     @if(isset($checkoutForm))
                     {!! $checkoutForm->getCheckoutFormContent() !!}
+                    @else
+                    <div class="alert alert-warning">
+                        Veli bilgileri girildikten sonra ödeme formu açılacaktır.
+                    </div>
                     @endif
                 </div>
             </div>
