@@ -621,9 +621,9 @@
                                 
             <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                 <div class="teacher-card fade-in-up">
-                    <div class="teacher-badges">
+                    <!--<div class="teacher-badges">
                         <span class="badge-teacher badge-verified"><i class="bi bi-check-circle-fill me-1"></i>Onaylı</span>
-                    </div>
+                    </div>-->
                     <div class="teacher-status"></div>
                     <div class="teacher-header">
                         <img src="{{ env('APP_URL') . '/' . $teacher->image }}" class="profile-img" width="180" alt="">
@@ -663,7 +663,7 @@
                             <a href="{{route('teacher.public.profile', $teacher->id)}}" class="btn btn-teacher btn-profile">
                                 <i class="bi bi-person me-1"></i> Profil
                             </a>
-                            <button class="btn btn-teacher btn-book">
+                            <button class="btn btn-teacher btn-book add-to-cart-btn" data-package-id="{{ $teacher->id }}" data-package-type="lesson">
                                 <i class="bi bi-calendar-plus me-1"></i> Ders Al
                             </button>
                         </div>
@@ -761,6 +761,33 @@
             observer.observe(card);
         });
     </script>
+   <script>
+            $(document).ready(function() {
+                // Add to cart Ajax function
+                $('.add-to-cart-btn').click(function(e) {
+                    e.preventDefault();
+                    var packageId = $(this).data('package-id');
+                    var packageType = $(this).data('package-type');
+                    $.ajax({
+                        url: '{{ route("student.cart.add") }}',
+                        method: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            teacher_id: packageId,
+                            item_type: 'lesson'
+                        },
+                        success: function(response) {
+                            alert('Ders sepetinize eklenmiştir!');
+                            //redirect to cart page
+                            window.location.href = '{{ route("student.cart.index") }}';
+                        },
+                        error: function(xhr) {
+                            alert('Sepete eklenirken bir hata oluştu.');
+                        }
+                    });
+                });
+            })
+        </script>
 </main>
 
 @endsection

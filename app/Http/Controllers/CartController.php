@@ -28,7 +28,7 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
-
+    
         $itemType = $request->input('item_type');
 
         if($itemType == "lesson"){

@@ -604,7 +604,7 @@
                                 @if($teacher->image == null)
                                         <img src="{{ asset('assets/img/default-image.png') }}" class="profile-img" width="80" alt="">
                                     @else
-                                    <img src="{{ asset($teacher->image) }}" class="profile-img" width="80" alt="">
+                                    <img src="{{ env('APP_URL') . '/' . $teacher->image }}" class="profile-img" width="80" alt="">
                                     @endif
                                 <div class="verified-badge" title="Onaylı Öğretmen">
                                     <i class="bi bi-check-lg"></i>
@@ -632,8 +632,8 @@
                             </div>
                         </div>
                         <div class="col-md-3 text-center text-md-end">
-                            <button class="btn btn-primary rounded-pill px-4 w-100">
-                                <i class="bi bi-calendar-plus me-2"></i>Ders Planla
+                            <button class="btn btn-teacher btn-book add-to-cart-btn" data-package-id="{{ $teacher->id }}" data-package-type="lesson">
+                                <i class="bi bi-calendar-plus me-1"></i> Ders Al
                             </button>
                         </div>
                     </div>
@@ -1050,7 +1050,7 @@
                             item_type: 'lesson'
                         },
                         success: function(response) {
-                            alert('Paket sepete eklendi!');
+                            alert('Ders sepetinize eklenmiştir!');
                             //redirect to cart page
                             window.location.href = '{{ route("student.cart.index") }}';
                         },
