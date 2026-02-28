@@ -29,9 +29,11 @@ class IyzicoController extends Controller
 
     public function pay()
     {
-        $student = Student::find(auth()->guard('student')->user()->id)->with('studentParent')->first();
 
-        //dd(session());
+        $student_id = auth('student')->user()->id;
+
+        $student = Student::where('id', $student_id)->with('studentParent')->first();
+
         // get session_id
         $sessionId = session()->getId();
         //dd($sessionId);
