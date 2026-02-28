@@ -466,7 +466,7 @@
                             <li><a href="#" class="tab-link" data-tab="settings">
                                 <i class="bi bi-gear"></i>Ayarlar</a>
                             </li>
-                            <li><a href="#" class="text-danger">
+                            <li><a href="{{ route('student.logout') }}" class="text-danger">
                                 <i class="bi bi-box-arrow-right"></i>Çıkış Yap</a>
                             </li>
                         </ul>
