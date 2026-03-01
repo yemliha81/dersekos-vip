@@ -69,7 +69,7 @@ class IyzicoController extends Controller
             //$options->setSecretKey(config('iyzico.sandbox_secret_key'));
             //$options->setBaseUrl(config('iyzico.sandbox_base_url'));
 
-        }
+        //}
 
         //if(env('IYZICO_MODE') == "live"){
 
