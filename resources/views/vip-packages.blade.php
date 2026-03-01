@@ -358,7 +358,7 @@
             z-index: 10;
         }
         .packs-grid {
-            display:grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            display:grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
         }
     </style>
     <main>
