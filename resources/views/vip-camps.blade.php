@@ -377,7 +377,7 @@
                         </div>
                         <div class="card-body">
                             <div>
-                                {{$camp->description}}
+                                {!!$camp->description!!}
                             </div>
 
                             <div class="pricing-section">
