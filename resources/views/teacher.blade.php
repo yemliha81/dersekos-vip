@@ -880,7 +880,7 @@
                 </div>
 
                 <!-- Gallery -->
-                <div class="content-section fade-in">
+                <!--<div class="content-section fade-in">
                     <h3 class="section-title">
                         <i class="bi bi-images"></i>Derslerden Kareler
                     </h3>
@@ -910,7 +910,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
             </div>
 
