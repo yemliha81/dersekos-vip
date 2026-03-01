@@ -216,8 +216,8 @@
         }
 
         .feature-icon {
-            width: 50px;
-            height: 50px;
+            width: 30px;
+            height: 30px;
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -297,9 +297,9 @@
         }
 
         /* Özel İkon Animasyonları */
-        .icon-float {
+        /*.icon-float {
             animation: float 3s ease-in-out infinite;
-        }
+        }*/
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
