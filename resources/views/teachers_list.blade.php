@@ -630,7 +630,7 @@
                     </div>
                     <div class="teacher-body">
                         <h3 class="teacher-name">{{ $teacher->name }}</h3>
-                        <div class="teacher-subject">{{ $teacher->branch }} Öğretmeni</div>
+                        <div class="teacher-subject">{{ ucwords(str_replace('_', ' ', $teacher->branch)) }} Öğretmeni</div>
                         <span class="teacher-grade">5-6-7-8. Sınıf</span>
                         
                         <div class="teacher-stats">
