@@ -617,7 +617,7 @@
                                 <span class="badge bg-primary">PRO</span>
                             </div>
                             <p class="text-primary fw-semibold mb-2">
-                                <i class="bi bi-calculator me-2"></i>{{$teacher->branch}} Öğretmeni
+                                <i class="bi bi-calculator me-2"></i>{{ucwords(str_replace('_', ' ', $teacher->branch))}} Öğretmeni
                             </p>
                             <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-2">
                                 <span class="review-stars">
