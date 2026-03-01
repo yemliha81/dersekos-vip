@@ -366,10 +366,10 @@
                 <p>Her sınıf seviyesine özel, kapsamlı ve sistematik eğitim programları</p>
             </div>
 
-            <div class="row g-3">
+            <div class="row" style="display:grid; gap: 20px; grid-template-columns: repeat(3, 1fr);">
                 @foreach($vip_packages as $package)
                 <!-- 5. SINIF PAKETİ - Taze Başlangıç -->
-                <div class="col-12 col-lg-6 col-xl-3">
+                <div class="">
                     
                     <div class="card package-card package-{{$package->grade}}" {{ $package->grade == 8 ? 'style="position: relative; overflow: hidden;"' : '' }}>
                         @if($package->grade == 8)
