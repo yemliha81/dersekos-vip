@@ -886,7 +886,7 @@
                         <li><i class="bi bi-check-circle-fill"></i> İptal garantisi (24s önce)</li>
                     </ul>
                     
-                    <button class="btn-book">
+                    <button class="btn-book add-to-cart-btn" data-package-id="{{ $teacher->id }}" data-package-type="lesson">
                         <i class="bi bi-calendar-check me-2"></i>Hemen Ders Talep Et
                     </button>
                     
