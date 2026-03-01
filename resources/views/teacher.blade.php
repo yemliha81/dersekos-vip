@@ -823,7 +823,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <small class="text-muted">2 hafta önce</small>
+                            <small class="text-muted">{{ date('d.m.Y', strtotime($review->created_at)) }}</small>
                         </div>
                         <p class="review-text">
                             {{$review->comment}}
