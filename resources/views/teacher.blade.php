@@ -706,7 +706,7 @@
                 </div>
 
                 <!-- Education & Experience -->
-                <div class="content-section fade-in">
+                <!--<div class="content-section fade-in">
                     <h3 class="section-title">
                         <i class="bi bi-mortarboard"></i>Eğitim & Deneyim
                     </h3>
@@ -749,7 +749,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
                 <!-- Performance Stats -->
                 <div class="content-section fade-in">
