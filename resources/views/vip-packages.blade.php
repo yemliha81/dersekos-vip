@@ -366,7 +366,7 @@
                 <p>Her sınıf seviyesine özel, kapsamlı ve sistematik eğitim programları</p>
             </div>
 
-            <div class="row g-4">
+            <div class="row g-3">
                 @foreach($vip_packages as $package)
                 <!-- 5. SINIF PAKETİ - Taze Başlangıç -->
                 <div class="col-12 col-lg-6 col-xl-3">
