@@ -357,6 +357,9 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             z-index: 10;
         }
+        .packs-grid {
+            display:grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
     </style>
     <main>
         <div class="container">
@@ -366,7 +369,7 @@
                 <p>Her sınıf seviyesine özel, kapsamlı ve sistematik eğitim programları</p>
             </div>
 
-            <div class="row" style="display:grid; gap: 20px; grid-template-columns: repeat(3, 1fr);">
+            <div class="row packs-grid">
                 @foreach($vip_packages as $package)
                 <!-- 5. SINIF PAKETİ - Taze Başlangıç -->
                 <div class="">
