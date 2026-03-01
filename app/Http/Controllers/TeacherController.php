@@ -40,7 +40,7 @@ class TeacherController extends Controller
     public function publicProfile($id)
     {
         $teacher = Teacher::with('events')->findOrFail($id);
-        $reviews = EventRate::where('teacher_id', $id)->with('student')->get();
+        $reviews = EventRate::where(['teacher_id' => $teacher->id, 'status' => 1])->with('student')->get();
 
         $meta_title = "Öğretmen Profili - " . $teacher->name . ", ".$teacher->branch;
         $meta_description = "Dersekos öğretmen profili. " . $teacher->name . " " . strip_tags($teacher->about);
