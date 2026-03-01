@@ -27,6 +27,16 @@
     <!-- jquery latest --> 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2B2FE5K16G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2B2FE5K16G');
+</script>
+
     <style>
         html,body {
             margin: 0;
