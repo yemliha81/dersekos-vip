@@ -648,7 +648,7 @@
                     <div class="stat-icon bg-primary bg-opacity-10 text-primary">
                         <i class="bi bi-camera-video"></i>
                     </div>
-                    <div class="stat-value">850+</div>
+                    <div class="stat-value">200+</div>
                     <div class="stat-label">Tamamlanan Ders</div>
                 </div>
             </div>
@@ -657,7 +657,7 @@
                     <div class="stat-icon bg-success bg-opacity-10 text-success">
                         <i class="bi bi-people"></i>
                     </div>
-                    <div class="stat-value">320</div>
+                    <div class="stat-value">50+</div>
                     <div class="stat-label">Aktif Öğrenci</div>
                 </div>
             </div>
@@ -812,7 +812,7 @@
                     <div class="review-card">
                         <div class="d-flex justify-content-between align-items-start">
                             <div class="d-flex gap-3">
-                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" alt="Student" class="reviewer-avatar">
+                                <i class="bi bi-person"></i>
                                 <div>
                                     <h6 class="fw-bold mb-1">{{maskName($review->student->name) }}</h6>
                                     <small class="text-muted"></small>
@@ -887,7 +887,7 @@
                     </ul>
                     
                     <button class="btn-book">
-                        <i class="bi bi-calendar-check me-2"></i>Hemen Rezervasyon Yap
+                        <i class="bi bi-calendar-check me-2"></i>Hemen Ders Talep Et
                     </button>
                     
                     <p class="text-center mt-3 mb-0" style="font-size: 0.9rem; opacity: 0.9;">
@@ -904,10 +904,6 @@
                         <li class="mb-3 d-flex align-items-start gap-2">
                             <i class="bi bi-check-circle-fill text-success mt-1"></i>
                             <span>İlk ders için %20 indirim</span>
-                        </li>
-                        <li class="mb-3 d-flex align-items-start gap-2">
-                            <i class="bi bi-check-circle-fill text-success mt-1"></i>
-                            <span>10 ders paketi alana 1 ders bedava</span>
                         </li>
                         <li class="mb-3 d-flex align-items-start gap-2">
                             <i class="bi bi-check-circle-fill text-success mt-1"></i>
