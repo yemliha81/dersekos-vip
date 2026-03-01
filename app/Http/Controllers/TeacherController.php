@@ -23,7 +23,11 @@ class TeacherController extends Controller
 
     public function listTeachers()
     {
-        $teachers = Teacher::all();
+        $teachers = //Get teachers with reviews
+        Teacher::with('reviews')
+        ->where('is_vip', 1)
+        ->get();
+
         return view('teacher.list', ['teachers' => $teachers]);
     }
 

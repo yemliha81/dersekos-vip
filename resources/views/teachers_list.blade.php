@@ -635,11 +635,11 @@
                         
                         <div class="teacher-stats">
                             <div class="teacher-stat">
-                                <div class="teacher-stat-value">100+</div>
+                                <div class="teacher-stat-value">200+</div>
                                 <div class="teacher-stat-label">Ders</div>
                             </div>
                             <div class="teacher-stat">
-                                <div class="teacher-stat-value">500+</div>
+                                <div class="teacher-stat-value">50+</div>
                                 <div class="teacher-stat-label">Öğrenci</div>
                             </div>
                             <div class="teacher-stat">
@@ -647,16 +647,16 @@
                                 <div class="teacher-stat-label">Yıl</div>
                             </div>
                         </div>
-
+                        <?php   $avg = $teacher->reviews->avg('rating'); // round value to 2 decimals
+                                    $avg = number_format($avg, 2);?>
                         <div class="teacher-rating">
                             <span class="stars">
+                                 @for($i = 1; $i <= round($avg); $i++)
                                 <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
+                                @endfor
                             </span>
-                            <span class="rating-count">(128 değerlendirme)</span>
+                            <br>
+                            <span class="rating-count">({{count($teacher->reviews)}} değerlendirme)</span>
                         </div>
 
                         <div class="teacher-actions">

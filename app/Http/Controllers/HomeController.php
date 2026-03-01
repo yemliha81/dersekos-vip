@@ -252,7 +252,7 @@ class HomeController extends Controller
     }
 
     public function teachersList(){
-        $teachers = Teacher::where(['status' => 1, 'is_vip' => 1])
+        $teachers = Teacher::where(['status' => 1, 'is_vip' => 1])->with('reviews')
         //where image is not null and not empty first
         ->orderByRaw("CASE 
             WHEN image IS NULL OR image = '' THEN 1 
@@ -260,6 +260,7 @@ class HomeController extends Controller
         END")
         ->orderBy('id')
         ->get();
+        //dd($teachers);
         return view('teachers_list', compact('teachers'));
     }  
 

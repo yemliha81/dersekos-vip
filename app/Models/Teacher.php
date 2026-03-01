@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\EventRate;
 
 class Teacher extends Authenticatable
 {
@@ -37,6 +38,11 @@ class Teacher extends Authenticatable
     public function events()
     {
         return $this->hasMany(Event::class, 'teacher_id', 'id');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(EventRate::class, 'teacher_id', 'id')->where('status', 1);
     }
 }
 
