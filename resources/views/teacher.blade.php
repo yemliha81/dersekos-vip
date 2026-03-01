@@ -804,79 +804,33 @@
                         <h3 class="section-title mb-0">
                             <i class="bi bi-chat-square-text"></i>Öğrenci Yorumları
                         </h3>
-                        <button class="btn btn-outline-primary rounded-pill btn-sm">
+                        <!--<button class="btn btn-outline-primary rounded-pill btn-sm">
                             Tümünü Gör (128)
-                        </button>
+                        </button>-->
                     </div>
-
+                    @foreach($reviews as $review)
                     <div class="review-card">
                         <div class="d-flex justify-content-between align-items-start">
                             <div class="d-flex gap-3">
                                 <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" alt="Student" class="reviewer-avatar">
                                 <div>
-                                    <h6 class="fw-bold mb-1">Ahmet K.</h6>
-                                    <small class="text-muted">8. Sınıf • LGS Hazırlık</small>
+                                    <h6 class="fw-bold mb-1">{{maskName($review->student->name) }}</h6>
+                                    <small class="text-muted"></small>
                                     <div class="review-stars mt-1">
+                                         @for($i = 1; $i <= $review->rating; $i++)
                                         <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
+                                        @endfor
                                     </div>
                                 </div>
                             </div>
                             <small class="text-muted">2 hafta önce</small>
                         </div>
                         <p class="review-text">
-                            Mehmet hocam sayesinde matematikten korkmuyorum artık! Özellikle geometri konularında çok yardımcı oldu. Sabırlı ve anlayışlı bir öğretmen. LGS'de hedeflediğim puanı almama yardımcı oldu.
+                            {{$review->comment}}
                         </p>
                     </div>
+                    @endforeach
 
-                    <div class="review-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div class="d-flex gap-3">
-                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Student" class="reviewer-avatar">
-                                <div>
-                                    <h6 class="fw-bold mb-1">Zeynep Y.</h6>
-                                    <small class="text-muted">7. Sınıf</small>
-                                    <div class="review-stars mt-1">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <small class="text-muted">1 ay önce</small>
-                        </div>
-                        <p class="review-text">
-                            Online derslere ilk başta şüpheyle yaklaşıyordum ama Mehmet hocam sayesinde görüşüm tamamen değişti. Dersler çok verimli geçiyor, konuları çok güzel açıklıyor. Tavsiye ederim!
-                        </p>
-                    </div>
-
-                    <div class="review-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div class="d-flex gap-3">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Parent" class="reviewer-avatar">
-                                <div>
-                                    <h6 class="fw-bold mb-1">Veli - Murat B.</h6>
-                                    <small class="text-muted">6. Sınıf Velisi</small>
-                                    <div class="review-stars mt-1">
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-half"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <small class="text-muted">2 ay önce</small>
-                        </div>
-                        <p class="review-text">
-                            Oğlumun matematik notlarında ciddi bir artış var. Ödevleri düzenli takip ediyor, veli olarak beni de bilgilendiriyor. Çok memnunuz, teşekkürler Mehmet Bey.
-                        </p>
-                    </div>
                 </div>
 
                 <!-- Gallery -->
