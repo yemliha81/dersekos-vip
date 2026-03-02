@@ -491,7 +491,7 @@
 
            
             <!-- CTA Bölümü -->
-            <div class="row mt-5 mb-5">
+            <!--<div class="row mt-5 mb-5">
                 <div class="col-12 text-center">
                     <div class="p-5 rounded-4" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
                         <h2 class="text-white mb-3">Hangi Paket Size Uygun?</h2>
@@ -501,7 +501,7 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
         </div>
     </main>
