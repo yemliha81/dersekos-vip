@@ -27,7 +27,7 @@ class TeacherController extends Controller
         Teacher::with('reviews')
         ->where('is_vip', 1)
         ->get();
-
+        
         return view('teacher.list', ['teachers' => $teachers]);
     }
 
@@ -46,11 +46,10 @@ class TeacherController extends Controller
         $teacher = Teacher::with('events')->findOrFail($id);
         $reviews = EventRate::where(['teacher_id' => $teacher->id, 'status' => 1])->with('student')->get();
 
-        $meta_title = "Öğretmen Profili - " . $teacher->name . ", ".$teacher->branch;
-        $meta_description = "Dersekos öğretmen profili. " . $teacher->name . " " . strip_tags($teacher->about);
-        //dd($rates);
-        //dd($teacher);
-        return view('teacher', compact('teacher', 'reviews', 'meta_title', 'meta_description'));
+        $seo['title'] = $teacher->name.', '. str_replace('_', ' ', $teacher->branch).' | Derse Koş VIP';
+        $seo['description'] = $teacher->name. ' - Branş: '.$teacher->branch.', '. $teacher->experience.' yıllık deneyim. LGS hazırlık uzmanı, interaktif ders teknikleri ve öğrenci odaklı eğitim anlayışı.';
+        $seo['keywords'] = $teacher->name. ' '.$teacher->branch.' öğretmeni, '.$teacher->name.' LGS uzmanı, '.$teacher->branch.' eğitmeni, online '.$teacher->branch.' hocası, öğretmen profili, eğitmen deneyimi, branş uzmanı';
+        return view('teacher', compact('teacher', 'reviews',  'seo'));
     }
 
     public function updateProfile(Request $request)

@@ -26,58 +26,34 @@ class HomeController extends Controller
 {
     public function index()
     {
-        //die(bcrypt('drs2026*'));
-        // cache teachers for 60 minutes
-        $teachers = cache()->remember('teachers', 60, function () {
-            return Teacher::orderByRaw("
-                CASE 
-                    WHEN image IS NULL OR image = '' THEN 1 
-                    ELSE 0 
-                END
-            ")->where('status', 1)->get();
-        });
-        
-
-        //dd($teachers);
-        //$languages = Language::all();
-
-        //$menuItems = Menu::where(['lang' => app()->getLocale(), 'parent_menu_id' => 0, 'menu_type' => 'header'])->get();
-
-        return view('home', compact('teachers'));
-    }
-
-    public function campRegistration()
-    {
-        $meta_title = "2025 - 2026 Ara Tatil Kamplarımız";
-
-        $campaigns = Campaign::where('status', 1)
-        //->where('campaign_start', '>', date('Y-m-d'))
-        ->orderBy('id', 'desc')
-        ->get();
-
-        //dd($campaigns);
-
-        return view('camp_registration', compact('meta_title', 'campaigns'));
-
+        $seo['title'] = 'Anasayfa | Derse Koş VIP';
+        $seo['keywords'] = 'online dersler, LGS hazırlık, ilkokul dersleri, ortaokul dersleri, online matematik, online fen bilimleri, online Türkçe, online sosyal bilgiler, online İngilizce, online din kültürü, interaktif eğitim, deneme sınavı, uzaktan eğitim, eğitim platformu, derse koş';
+        $seo['descriptipon'] = 'DERSE KOŞ - Online eğitim platformu. İlkokul, ortaokul ve LGS hazırlık için matematik, fen bilimleri, Türkçe, sosyal bilgiler, İngilizce ve din kültürü dersleri. İnteraktif içerikler, deneme sınavları ve uzman eğitmenlerle başarıya koşun!';
+        return view('home', compact('seo'));
     }
 
     public function vipPackages()
     {
-        $meta_title = "VIP Paketlerimiz";
 
         $vip_packages = VipPackage::where('type', 'package')->get();
 
-        return view('vip-packages', compact('meta_title', 'vip_packages'));
+        $seo['title'] = 'VIP Okula Destek ve LGS Hazırlık Paketlerimiz | Derse Koş VIP';
+        $seo['keywords'] = 'eğitim paketi, LGS hazırlık seti, matematik paketi, fen bilimleri paketi, Türkçe paketi, sosyal bilgiler paketi, İngilizce paketi, din kültürü paketi, online ders paketi, konu anlatım videosu, deneme sınavı';
+        $seo['descriptipon'] = '5., 6., 7. ve 8. sınıf tüm ders paketleri. Matematik, fen bilimleri, Türkçe, sosyal bilgiler, İngilizce ve din kültürü. LGS hazırlık setleri, konu anlatımlı videolar, interaktif sorular ve deneme sınavları.';
+
+        return view('vip-packages', compact( 'vip_packages', 'seo'));
 
     }
 
     public function vipCamps()
     {
-        $meta_title = "VIP Kamplarımız";
 
         $vip_camps = VipPackage::where('type', 'camp')->get();
 
-        return view('vip-camps', compact('meta_title', 'vip_camps'));
+        $seo['title'] = 'VIP Kamplarımız | Derse Koş VIP';
+        $seo['descriptipon'] = 'Tüm dersleri kapsayan yoğunlaştırılmış LGS kampları. Matematik, fen bilimleri, Türkçe, sosyal bilgiler, İngilizce ve din kültürü branşlarında tatil dönemi kampları ve sınav maratonu programları.';
+        $seo['keywords'] = 'LGS hazırlık kampı, matematik kampı, fen bilimleri kampı, Türkçe kampı, sosyal bilgiler kampı, İngilizce kampı, din kültürü kampı, yaz kampı, sınav maratonu, yoğun eğitim kampı';
+        return view('vip-camps', compact( 'vip_camps', 'seo'));
 
     }
 
@@ -94,14 +70,6 @@ class HomeController extends Controller
         // For demonstration, we'll just return a success message
 
         return redirect()->route('vip.packages')->with('success', 'VIP paketi satın alma işlemi başarılı!');
-
-    }
-
-    public function campsList()
-    {
-        $meta_title = "2025 - 2026 Ara Tatil Kamplarımız";
-
-        return view('camps', compact('meta_title'));
 
     }
 
@@ -206,7 +174,9 @@ class HomeController extends Controller
 
         if($menu->page_type == 'contact') {
             $offices = Office::where(['lang' => app()->getLocale()])->get();
-            $seo = SeoSettings::where('page', 'contact')->where('lang', app()->getLocale())->first();
+            $seo['title'] = 'İletişim | Derse Koş VIP';
+            $seo['keywords'] = 'derse koş iletişim, online eğitim destek, ders danışma, eğitim platformu iletişim, dersekos vip destek, öğrenci hizmetleri, branş dersleri bilgi';//SeoSettings::where('page', 'contact')->where('lang', app()->getLocale())->first();
+            $seo['description'] = 'DERSE KOŞ iletişim bilgileri. Matematik, fen, Türkçe, sosyal bilgiler, İngilizce ve din kültürü dersleri hakkında sorularınız için bize ulaşın: info@dersekos.com';
             return view('contact', compact('offices', 'seo'));
         }
 
@@ -224,13 +194,19 @@ class HomeController extends Controller
     //about page
     public function about()
     {
+        $seo['title'] = 'Hakkımızda | Derse Koş VIP';
+        $seo['keywords'] = 'derse koş hakkında, online eğitim platformu, çok branşlı eğitim, maarif modeli dersler, eğitim misyonu, uzaktan eğitim ekibi, kaliteli ders içerikleri, öğrenci başarısı, eğitim teknolojileri';
+        $seo['description'] = 'DERSE KOŞ ekibi olarak 3000+ öğrenciye ulaşan, yenilikçi Maarif Modeli müfredatına uygun eğitim sunuyoruz. Matematikten İngilizceye, fen bilimlerinden din kültürüne tüm branşlarda kaliteli içerik üretiyoruz.';
         return view('about');
     }
 
     //about page
     public function contact()
     {
-        return view('contact');
+        $seo['title'] = 'İletişim | Derse Koş VIP';
+        $seo['keywords'] = 'derse koş iletişim, online eğitim destek, ders danışma, eğitim platformu iletişim, dersekos vip destek, öğrenci hizmetleri, branş dersleri bilgi';//SeoSettings::where('page', 'contact')->where('lang', app()->getLocale())->first();
+        $seo['description'] = 'DERSE KOŞ iletişim bilgileri. Matematik, fen, Türkçe, sosyal bilgiler, İngilizce ve din kültürü dersleri hakkında sorularınız için bize ulaşın: info@dersekos.com';
+        return view('contact', compact('seo'));
     }
 
     //rfund page
@@ -260,25 +236,14 @@ class HomeController extends Controller
         END")
         ->orderBy('id')
         ->get();
+        $seo['title'] = 'Eğitmen Kadromuz | Derse Koş VIP';
+        $seo['keywords'] = 'matematik öğretmeni, fen bilimleri öğretmeni, Türkçe öğretmeni, sosyal bilgiler öğretmeni, İngilizce öğretmeni, din kültürü öğretmeni, LGS uzmanı eğitmen, online branş öğretmeni, eğitmen kadrosu';
+        $seo['description'] = 'Tüm branşlarda uzman eğitmen kadromuzla tanışın. Matematik, fen bilimleri, Türkçe, sosyal bilgiler, İngilizce ve din kültürü öğretmenlerimiz. LGS hazırlık uzmanları ve deneyimli branş öğretmenleri.';
         //dd($teachers);
-        return view('teachers_list', compact('teachers'));
+        return view('teachers_list', compact('teachers', 'seo'));
     }  
 
-    public function testUrl(){
-        //return json data
-        try {
-            $answers = [['1:A', '2:B', '3:C', '4:D', '5:E', '6:F', '7:G', '8:H', '9:I', '10:J', '11:K', '12:L', '13:M', '14:N', '15:O', '16:P', '17:Q', '18:R', '19:S', '20:T', '21:U', '22:V', '23:W', '24:X', '25:Y', '26:Z']];
-            $examStudent = new ExamStudent();
-            $examStudent->exam_id = 1;
-            $examStudent->student_id = 5;
-            $examStudent->answers = json_encode($answers);
-            $examStudent->save();  
-            return response()->json(['status' => 200]);
-        } catch (\Throwable $th) {
-            throw $th;
-        }
-        
-    }
+   
 
     
 }

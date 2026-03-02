@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Derse Koş VIP ile hedeflerinize ulaşmak artık çok daha kolay!</title>
+    <title><?=$seo['title'] ?? 'Derse Koş VIP, Online Eğitim Platformu'?></title>
+
+    <!-- meta tags -->
+    <meta name="keywords" content="<?=$seo['keywords'] ?? 'online dersler, LGS hazırlık, ilkokul dersleri, ortaokul dersleri, online matematik, online fen bilimleri, online Türkçe'?>">
+    <meta name="description" content="<?=$seo['description'] ?? 'DERSE KOŞ - Online eğitim platformu. İlkokul, ortaokul ve LGS hazırlık için matematik, fen bilimleri, Türkçe, sosyal bilgiler, İngilizce ve din kültürü dersleri. İnteraktif içerikler, deneme sınavları ve uzman eğitmenlerle başarıya koşun!'?>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
