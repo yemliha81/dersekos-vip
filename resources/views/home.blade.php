@@ -2,7 +2,29 @@
 
 
 @section('content')
-
+    <style>
+        .lesson-card{
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .overlay{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.8);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease;
+            padding: 10px;
+        }
+        .lesson-card:hover .overlay{
+            opacity: 1;
+        }
+    </style>
     <div class="main-content">
         <div class="banner-div">
             <div class="container">
@@ -40,14 +62,17 @@
                 <h2 class="mb-4">Popüler Dersler</h2>
             </div>
             <div class="services">
-                <div>
+                <div class="lesson-card">
                     <img src="img/matematik.png" alt="matematik" width="100%">
+                    <div class="overlay">Matematik</div>
                 </div>
-                <div>
+                <div class="lesson-card">
                     <img src="img/fen-bilimleri.png" alt="fen-bilimleri" width="100%">
+                    <div class="overlay">Fen Bilimleri</div>
                 </div>
-                <div>
+                <div class="lesson-card">
                     <img src="img/turkce.png" alt="turkce" width="100%">
+                    <div class="overlay">Türkçe</div>
                 </div>
             </div>
             <div class="testimonials">

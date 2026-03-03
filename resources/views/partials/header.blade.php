@@ -233,6 +233,30 @@
             display: block;
         }
 
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 9999;
+            transition: all 0.3s ease;
+            }
+
+        .whatsapp-float:hover {
+            background-color: #1ebe5d;
+            transform: scale(1.1);
+        }
+
         @media (max-width: 768px) {
             .logo-bar img{
                 height: 120px;

@@ -15,6 +15,12 @@
         </div>
       </div>
     </div>
+    <a href="https://wa.me/9055067790414" 
+    class="whatsapp-float" 
+    target="_blank"
+    aria-label="WhatsApp ile iletişime geç">
+    <i class="bi bi-whatsapp"></i>
+  </a>
   </footer>
 <!-- jquery cdn --> 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
