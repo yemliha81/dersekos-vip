@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <a href="https://wa.me/9055067790414" 
+    <a href="https://wa.me/905067790414" 
     class="whatsapp-float" 
     target="_blank"
     aria-label="WhatsApp ile iletişime geç">
