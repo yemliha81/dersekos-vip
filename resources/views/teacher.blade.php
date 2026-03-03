@@ -613,7 +613,7 @@
                         </div>
                         <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
                             <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-2 mb-2">
-                                <h1 class="h2 fw-bold mb-0">{{$teacher->name}}</h1>
+                                <h1 class="h2 fw-bold mb-0">{{ explode(' ', $teacher->name)[0] }} Öğretmen</h1>
                                 <span class="badge bg-primary">PRO</span>
                             </div>
                             <p class="text-primary fw-semibold mb-2">

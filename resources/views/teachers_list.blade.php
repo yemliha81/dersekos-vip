@@ -629,7 +629,7 @@
                         <img src="{{ env('APP_URL') . '/' . $teacher->image }}" class="profile-img" width="180" alt="">
                     </div>
                     <div class="teacher-body">
-                        <h3 class="teacher-name">{{ $teacher->name }}</h3>
+                        <h3 class="teacher-name">{{ explode(' ', $teacher->name)[0] }} Öğretmen</h3>
                         <div class="teacher-subject">{{ ucwords(str_replace('_', ' ', $teacher->branch)) }} Öğretmeni</div>
                         <span class="teacher-grade">5-6-7-8. Sınıf</span>
                         
