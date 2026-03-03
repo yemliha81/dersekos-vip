@@ -258,6 +258,9 @@
         }
 
         @media (max-width: 768px) {
+            .iyzico-logo{
+                width:80%
+            }
             .logo-bar img{
                 height: 120px;
             }

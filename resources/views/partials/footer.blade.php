@@ -11,7 +11,7 @@
         </div>
         <p class="text-muted">Dersekos VIP {{ date('Y') }} &copy; Tüm Hakları Saklıdır </p>
         <div>
-          <img src="{{asset('assets/img/iyzico-logo.png')}}" alt="">
+          <img class="iyzico-logo" src="{{asset('assets/img/iyzico-logo.png')}}" alt="">
         </div>
       </div>
     </div>
