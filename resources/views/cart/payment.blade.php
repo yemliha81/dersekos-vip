@@ -246,8 +246,8 @@
                             <input type="text" name="last_name" class="form-control" value="{{$student->studentParent->last_name ?? ''}}" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">TC Kimlik No (Zorunlu değil)</label>
-                            <input type="text" name="tc_no" class="form-control" value="{{$student->studentParent->tc_no ?? ''}}">
+                            <label class="form-label">TC Kimlik No (Zorunlu)</label>
+                            <input type="text" name="tc_no" class="form-control" value="{{$student->studentParent->tc_no ?? ''}}" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">E-posta (Zorunlu)</label>

@@ -109,6 +109,7 @@
       <form  action="{{route('student.login.submit')}}" method="POST" class="form form-login">
         @csrf
         <h2>Hesabına Giriş Yap</h2>
+        <div class="alert alert-info">dersekos.com hesabınızla giriş yapabilirsiniz.</div>
         <div class="field">
           <label>E‑posta</label>
           <input type="email" name="email" placeholder="ornek@mail.com" required>
