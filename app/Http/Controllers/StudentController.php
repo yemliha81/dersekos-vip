@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Teacher;
 use App\Models\Language;
 use App\Models\Event;
+use App\Models\EventVip;
 use App\Models\EventRate;
 use App\Models\Quiz;
 use App\Models\StudentParent;
@@ -19,9 +20,11 @@ class StudentController extends Controller
 {
     public function dashboard()
     {
+
         $orders = Order::where('student_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
+        $vip_lessons = EventVip::where('grade', auth()->user()->grade)->with('teacher')->orderBy('start', 'asc')->get();
         
-        return view('student.dashboard', compact('orders'));
+        return view('student.dashboard', compact('orders', 'vip_lessons'));
     }
 
     public function rateEvent(Request $request){

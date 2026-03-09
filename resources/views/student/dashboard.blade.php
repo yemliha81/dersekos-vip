@@ -485,7 +485,52 @@
                             <p class="mb-0 mt-2 opacity-75">Bugün hangi derse çalışmak istersin?</p>
                         </div>
                         <div class="content-body">
-                            <h5 class="mb-4 fw-bold text-secondary">
+                            <!-- Use Carbon --> 
+                            <?php use Carbon\Carbon; ?>
+                            @if(auth('student')->user()->vip_start != null)
+                                @if(auth('student')->user()->vip_end > Carbon::now())
+                                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                                        <i class="bi bi-award me-2"></i>
+                                        <div>
+                                            VIP Üyeliğiniz Aktif! 
+                                            Bitiş Tarihi: {{ date("d.m.Y H:i", strtotime(auth('student')->user()->vip_end)) }}
+                                        </div>
+                                    </div>
+
+                                    <!-- List VIP Lessons --> 
+                                    @foreach($vip_lessons as $vip_lesson)
+                                        <div class="alert alert-info d-flex align-items-center" role="alert">
+                                            <i class="bi bi-book me-2"></i>
+                                            <div>
+                                                <strong>Ders:</strong> {{ $vip_lesson->teacher->branch }} <br>
+                                                <strong>Konu:</strong> {{ $vip_lesson->grade }}. Sınıf - {{ $vip_lesson->title }} <br>
+                                                <strong>Eğitmen:</strong> {{ $vip_lesson->teacher->name }} <br>
+                                                <strong>Başlangıç:</strong> {{ date("d.m.Y H:i", strtotime($vip_lesson->start)) }}
+                                                @if($vip_lesson->end > Carbon::now() && $vip_lesson->start < Carbon::now())
+                                                    <span class="badge bg-success ms-2">Ders Başladı!</span> <br>
+                                                    <a href="{{$vip_lesson->meet_url}}" target="_blank" class="mt-3 form-control btn btn-primary btn-sm">DERSE KOŞ</a>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+
+
+
+
+                                @else
+                                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                        <i class="bi bi-x-circle me-2"></i>
+                                        <div>
+                                            VIP Üyeliğiniz Sona Ermiştir! <br>
+                                            Bitiş Tarihi: {{ date("d.m.Y H:i", strtotime(auth('student')->user()->vip_end)) }}
+                                        </div>
+                                    </div>
+                                @endif
+
+
+                            @endif
+                            <!--<h5 class="mb-4 fw-bold text-secondary">
                                 <i class="bi bi-box-seam me-2"></i>Aktif Paketlerim
                             </h5>
                             <div class="row g-4">
@@ -540,7 +585,7 @@
                                 @endforeach
                                 
                                 
-                            </div>
+                            </div>-->
                         </div>
                     </div>
 
