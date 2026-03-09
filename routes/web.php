@@ -155,6 +155,9 @@ Route::get('/odeme', 'App\Http\Controllers\IyzicoController@pay')->middleware('a
 Route::post('/iyzico-callback', 'App\Http\Controllers\IyzicoController@callback')->name('iyzico.callback');
 
 
+//Route::get('/all-students', 'App\Http\Controllers\HomeController@allStudents')->name('all.students');
+
+
 
 
 

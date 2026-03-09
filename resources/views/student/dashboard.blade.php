@@ -426,6 +426,40 @@
         .status-badge.success { background: #d4edda; color: #155724; }
         .status-badge.pending { background: #fff3cd; color: #856404; }
         .status-badge.cancelled { background: #f8d7da; color: #721c24; }
+
+        .rocking-btn {
+            font-size: 1.2rem;
+            padding: 12px 24px;
+            border: 2px dashed #FFFFFF;
+            border-radius: 8px;
+            background: #4f46e5;
+            color: white;
+            cursor: pointer;
+            display:inline-block;
+            transform-origin: center;
+            animation: rock .5s ease-in-out infinite;
+            }
+
+            @keyframes rock {
+            0%   { transform: rotate(0deg); }
+            25%  { transform: rotate(5deg); }
+            50%  { transform: rotate(0deg); }
+            75%  { transform: rotate(-5deg); }
+            100% { transform: rotate(0deg); }
+            }
+
+            .spin {
+                animation: spin 1s linear infinite;
+            }
+
+            @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+            }
     </style>
 
 <main>
@@ -506,10 +540,19 @@
                                                 <strong>Konu:</strong> {{ $vip_lesson->grade }}. Sınıf - {{ $vip_lesson->title }} <br>
                                                 <strong>Eğitmen:</strong> {{ $vip_lesson->teacher->name }} <br>
                                                 <strong>Başlangıç:</strong> {{ date("d.m.Y H:i", strtotime($vip_lesson->start)) }}
-                                                @if($vip_lesson->end > Carbon::now() && $vip_lesson->start < Carbon::now())
+                                                <!--@if($vip_lesson->end > Carbon::now() && $vip_lesson->start < Carbon::now())
                                                     <span class="badge bg-success ms-2">Ders Başladı!</span> <br>
                                                     <a href="{{$vip_lesson->meet_url}}" target="_blank" class="mt-3 form-control btn btn-primary btn-sm">DERSE KOŞ</a>
-                                                @endif
+                                                @endif-->
+                                                <div class="row mt-3">
+                                                    @if($vip_lesson->end > now())
+                                                        <a id="start_{{ $vip_lesson->id }}" lesson-id="{{ $vip_lesson->id }}" target="_blank" href="{{ $vip_lesson->meet_url }}" start-time="{{ $vip_lesson->start }}" end-time="{{ $vip_lesson->end }}" style="display:none;"  class="start_lesson rocking-btn">Derse Koş!</a>
+                                                    @endif
+                                                    
+                                                    @if($vip_lesson->start > now())
+                                                        <div class="alert alert-warning alert_{{ $vip_lesson->id }}"><i class="bi bi-alarm"></i> <span class="countdown" id="countdown_{{ $vip_lesson->id }}"></span></div>
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
                                     @endforeach
@@ -1027,6 +1070,60 @@
             this.style.transform = 'translateY(0)';
         });
     });
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('.start_lesson').each(function() {
+            var lessonId = $(this).attr('lesson-id');
+            const start_time = $(this).attr('start-time');
+            const end_time   = $(this).attr('end-time');
+
+            
+            // set interval every second
+            setInterval(function() {
+                
+                //calculate time left
+                var timeLeft = Math.floor((Date.parse(start_time) - Date.parse(new Date())) / 1000); 
+
+                var days = Math.floor(timeLeft / 86400); 
+                var hours = Math.floor((timeLeft - days * 86400) / 3600); 
+                var minutes = Math.floor((timeLeft - days * 86400 - hours * 3600) / 60); 
+                var seconds = timeLeft - (days * 86400 + hours * 3600 + minutes * 60);
+
+                // Format time left
+                var timeLeft = (days > 0 ? days + 'g ' : '') + (hours > 0 ? hours + 's ' : '') + (minutes > 0 ? minutes + 'dk ' : '') + (seconds > 0 ? seconds + 'sn' : '');
+
+                // Set time left
+                $('#countdown_' + lessonId).text(timeLeft);
+
+                // Convert to Date objects
+                const start = new Date(start_time.replace(' ', 'T'));
+                const end   = new Date(end_time.replace(' ', 'T'));
+                const now   = new Date();
+
+                // Check if current time is between start and end
+                const isBetween = now >= start && now <= end;
+
+                const isFinished = now > end;
+
+                if (isFinished == true) {
+                    $(".card_" + lessonId).remove();
+                }
+
+                if (isBetween == true) {
+                    $("#start_" + lessonId).show();
+                    $(".time_info_" + lessonId).hide();
+                    $('#countdown_' + lessonId).remove();
+                    $('.alert_' + lessonId).remove();
+                }else{
+                    
+                }
+            }, 1000)
+
+
+        });
+    })
 </script>
 
 

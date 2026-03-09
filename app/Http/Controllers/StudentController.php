@@ -22,7 +22,13 @@ class StudentController extends Controller
     {
 
         $orders = Order::where('student_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
-        $vip_lessons = EventVip::where('grade', auth()->user()->grade)->with('teacher')->orderBy('start', 'asc')->get();
+
+        // select vip_lessons where start is greater than now and smalelr than 1 day later
+        $vip_lessons = EventVip::where('grade', auth()->user()->grade)->where('end', '>', now())
+        ->where('start', '<', now()->addDay())->with('teacher')->orderBy('start', 'asc')->get();
+
+
+        //$vip_lessons = EventVip::where('grade', auth()->user()->grade)->with('teacher')->orderBy('start', 'asc')->get();
         
         return view('student.dashboard', compact('orders', 'vip_lessons'));
     }

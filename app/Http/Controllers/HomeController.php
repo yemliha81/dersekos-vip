@@ -15,6 +15,7 @@ use App\Models\ContentCategory;
 use App\Models\Content;
 use App\Models\SeoSettings;
 use App\Models\Teacher;
+use App\Models\Student;
 use App\Models\Event;
 use App\Models\Campaign;
 use App\Models\VipPackage;
@@ -243,7 +244,13 @@ class HomeController extends Controller
         return view('teachers_list', compact('teachers', 'seo'));
     }  
 
-   
+    /*public function allStudents(){
+        $students = Student::all();
+        foreach($students as $student){
+            echo $student->name . ' - ' . $student->id . '<br>';
+        }
+    }*/
+
 
     
 }
