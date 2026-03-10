@@ -521,13 +521,13 @@
                         <div class="content-body">
                             <!-- Use Carbon --> 
                             <?php use Carbon\Carbon; ?>
-                            @if(auth('student')->user()->vip_start != null)
-                                @if(auth('student')->user()->vip_end > Carbon::now())
+                            <!--@if(auth('student')->user()->vip_start != null)-->
+                                <!--@if(auth('student')->user()->vip_end > Carbon::now())-->
                                     <div class="alert alert-success d-flex align-items-center" role="alert">
                                         <i class="bi bi-award me-2"></i>
                                         <div>
                                             VIP Üyeliğiniz Aktif! 
-                                            Bitiş Tarihi: {{ date("d.m.Y H:i", strtotime(auth('student')->user()->vip_end)) }}
+                                            <!--Bitiş Tarihi: {{ date("d.m.Y H:i", strtotime(auth('student')->user()->vip_end)) }}  -->
                                         </div>
                                     </div>
 
@@ -561,7 +561,7 @@
 
 
 
-                                @else
+                                <!--@else
                                     <div class="alert alert-danger d-flex align-items-center" role="alert">
                                         <i class="bi bi-x-circle me-2"></i>
                                         <div>
@@ -569,10 +569,10 @@
                                             Bitiş Tarihi: {{ date("d.m.Y H:i", strtotime(auth('student')->user()->vip_end)) }}
                                         </div>
                                     </div>
-                                @endif
+                                @endif-->
 
 
-                            @endif
+                            <!--@endif-->
                             <!--<h5 class="mb-4 fw-bold text-secondary">
                                 <i class="bi bi-box-seam me-2"></i>Aktif Paketlerim
                             </h5>
