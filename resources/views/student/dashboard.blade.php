@@ -815,9 +815,23 @@
                             <p class="mb-0 mt-2 opacity-75">Ders kayıtlarını buradan izle</p>
                         </div>
                         <div class="content-body">
-                            <div class="alert alert-info">
-                                Henüz ders kaydınız bulunmuyor.
-                            </div>
+                            
+                                @if($vip_lesson_records->count() > 0)
+                                    
+                                    @foreach($vip_lesson_records as $vip_lesson_record)
+                                        <div class="mb-3">
+                                            <div class="alert alert-info">
+                                                <h5 class="mb-1">{{ $vip_lesson_record->title }}</h5>
+                                                <p class="mb-0 text-muted"><i class="bi bi-calendar me-2"></i>{{ date("d.m.Y H:i", strtotime($vip_lesson_record->created_at)) }}</p>
+                                                <a href="{{ $vip_lesson_record->url }}" target="_blank" class="mt-2 btn btn-sm btn-primary">Kaydı İzle</a>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                @else
+                                    <p class="mb-0">Henüz ders kaydınız bulunmuyor.</p>
+                                @endif
+                            
                         </div>
                     </div>
 

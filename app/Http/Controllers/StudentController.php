@@ -27,10 +27,12 @@ class StudentController extends Controller
         $vip_lessons = EventVip::where('grade', auth()->user()->grade)->where('end', '>', now())
         ->where('start', '<', now()->addDay())->with('teacher')->orderBy('start', 'asc')->get();
 
+        $vip_lesson_records = DB::table('vip_lesson_records')->where('grade', auth()->user()->grade)->get();
+
 
         //$vip_lessons = EventVip::where('grade', auth()->user()->grade)->with('teacher')->orderBy('start', 'asc')->get();
         
-        return view('student.dashboard', compact('orders', 'vip_lessons'));
+        return view('student.dashboard', compact('orders', 'vip_lessons', 'vip_lesson_records'));
     }
 
     public function rateEvent(Request $request){
