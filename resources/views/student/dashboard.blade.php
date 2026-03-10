@@ -519,10 +519,9 @@
                             <p class="mb-0 mt-2 opacity-75">Bugün hangi derse çalışmak istersin?</p>
                         </div>
                         <div class="content-body">
-                            <!-- Use Carbon --> 
+                            
                             <?php use Carbon\Carbon; ?>
-                            <!--@if(auth('student')->user()->vip_start != null)-->
-                                <!--@if(auth('student')->user()->vip_end > Carbon::now())-->
+                            
                                     <div class="alert alert-success d-flex align-items-center" role="alert">
                                         <i class="bi bi-award me-2"></i>
                                         <div>
@@ -561,74 +560,7 @@
 
 
 
-                                <!--@else
-                                    <div class="alert alert-danger d-flex align-items-center" role="alert">
-                                        <i class="bi bi-x-circle me-2"></i>
-                                        <div>
-                                            VIP Üyeliğiniz Sona Ermiştir! <br>
-                                            Bitiş Tarihi: {{ date("d.m.Y H:i", strtotime(auth('student')->user()->vip_end)) }}
-                                        </div>
-                                    </div>
-                                @endif-->
-
-
-                            <!--@endif-->
-                            <!--<h5 class="mb-4 fw-bold text-secondary">
-                                <i class="bi bi-box-seam me-2"></i>Aktif Paketlerim
-                            </h5>
-                            <div class="row g-4">
-                                @foreach($orders as $key => $order)
-                                    @if($order->content_type == "package")
-                                        <div class="col-12 col-lg-4">
-                                            <div class="package-card okul-destek">
-                                                <div class="package-icon"><i class="bi bi-building-check"></i></div>
-                                                <div class="package-title">{{$order->description}}</div>
-                                                <span class="package-status">Aktif</span>
-                                                <div class="package-info">
-                                                    <i class="bi bi-calendar3 me-2"></i>{{ date("d.m.Y", strtotime($order->start_date))}} - {{ date("d.m.Y", strtotime($order->end_date))}}<br>
-                                                </div>
-                                                <button class="btn btn-light w-100 mt-3 rounded-pill fw-bold">
-                                                    <i class="bi bi-play-circle me-2"></i>Derse Git
-                                                </button>
-                                            </div>
-                                        </div>
-                                    @endif
-                                    @if($order->content_type == "lesson")
-                                        <div class="col-12 col-lg-4">
-                                            <div class="package-card ozel-ders">
-                                                <div class="package-icon"><i class="bi bi-person-video3"></i></div>
-                                                <div class="package-title">{{$order->description}}</div>
-                                                <span class="package-status">Planlandı</span>
-                                                <div class="package-info">
-                                                    <i class="bi bi-clock me-2"></i>{{ date("d.m.Y", strtotime($order->start_date))}}<br>
-                                                    <i class="bi bi-person me-2"></i>{{$order->description}}
-                                                </div>
-                                                <button class="btn btn-light w-100 mt-3 rounded-pill fw-bold">
-                                                    <i class="bi bi-camera-video me-2"></i>Derse Gir
-                                                </button>
-                                            </div>
-                                        </div>
-                                    @endif
-                                    @if($order->content_type == "camp")
-                                        <div class="col-12 col-lg-4">
-                                            <div class="package-card yazili-kampi">
-                                                <div class="package-icon"><i class="bi bi-pencil-square"></i></div>
-                                                <div class="package-title">{{$order->description}}</div>
-                                                <span class="package-status">Devam Ediyor</span>
-                                                <div class="package-info">
-                                                    <i class="bi bi-calendar3 me-2"></i>{{ date("d.m.Y", strtotime($order->start_date))}} - {{ date("d.m.Y", strtotime($order->end_date))}}<br>
-                                                    
-                                                </div>
-                                                <button class="btn btn-light w-100 mt-3 rounded-pill fw-bold">
-                                                    <i class="bi bi-fire me-2"></i>Kampa Git
-                                                </button>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endforeach
-                                
-                                
-                            </div>-->
+                              
                         </div>
                     </div>
 
