@@ -494,6 +494,10 @@
                                 <a href="#" class="tab-link" data-tab="progress">
                                 <i class="bi bi-youtube"></i>Ders Kayıtları</a>
                             </li>
+                            <li>
+                                <a href="#" class="tab-link" data-tab="games">
+                                <i class="bi bi-controller"></i>Oyunlar</a>
+                            </li>
                             <li><a href="#" class="tab-link" data-tab="payments">
                                 <i class="bi bi-credit-card"></i>Ödemelerim</a>
                             </li>
@@ -565,20 +569,25 @@
                     </div>
 
                     <!-- 2. DERSLERİM -->
-                    <div id="lessons" class="tab-content">
+                    <div id="games" class="tab-content">
                         <div class="content-header">
                             <h2><i class="bi bi-collection-play me-3"></i>Derslerim</h2>
                             <p class="mb-0 mt-2 opacity-75">Tüm ders içeriklerinize buradan ulaşabilirsiniz</p>
                         </div>
                         <div class="content-body">
-                            <div class="d-flex justify-content-between align-items-center mb-4">
-                                <h5 class="fw-bold text-secondary mb-0">Devam Eden Dersler</h5>
-                                <select class="form-select w-auto">
-                                    <option>Tüm Dersler</option>
-                                    <option>Matematik</option>
-                                    <option>Fen Bilimleri</option>
-                                    <option>Türkçe</option>
-                                </select>
+                            
+
+                            <div class="lesson-item">
+                                <div class="lesson-icon" style="background: var(--primary-gradient);">
+                                    <i class="bi bi-calculator"></i>
+                                </div>
+                                <div class="lesson-info">
+                                    <div class="lesson-title">Matematik - Kesirler</div>
+                                    <div class="lesson-meta">
+                                       
+                                    </div>
+                                </div>
+                                <a target="_blank" href="{{route('game.kesirler')}}" class="lesson-action">Oyna</a>
                             </div>
 
                             <div class="lesson-item">
@@ -586,45 +595,15 @@
                                     <i class="bi bi-calculator"></i>
                                 </div>
                                 <div class="lesson-info">
-                                    <div class="lesson-title">Matematik - Çarpanlara Ayırma</div>
+                                    <div class="lesson-title">Matematik - Dört İşlem</div>
                                     <div class="lesson-meta">
-                                        <i class="bi bi-clock me-1"></i>45 dk | 
-                                        <i class="bi bi-bar-chart me-1 ms-2"></i>Orta Seviye |
-                                        <span class="text-success ms-2"><i class="bi bi-check-circle-fill me-1"></i>%75 Tamamlandı</span>
+                                       
                                     </div>
                                 </div>
-                                <button class="lesson-action">Devam Et</button>
+                                <a target="_blank"  href="{{route('game.dort.islem')}}" class="lesson-action">Oyna</a>
                             </div>
 
-                            <div class="lesson-item">
-                                <div class="lesson-icon" style="background: var(--success-gradient);">
-                                    <i class="bi bi-flask"></i>
-                                </div>
-                                <div class="lesson-info">
-                                    <div class="lesson-title">Fen Bilimleri - Maddenin Halleri</div>
-                                    <div class="lesson-meta">
-                                        <i class="bi bi-clock me-1"></i>30 dk | 
-                                        <i class="bi bi-bar-chart me-1 ms-2"></i>Kolay |
-                                        <span class="text-warning ms-2"><i class="bi bi-circle me-1"></i>Yeni Başladın</span>
-                                    </div>
-                                </div>
-                                <button class="lesson-action">Başla</button>
-                            </div>
-
-                            <div class="lesson-item">
-                                <div class="lesson-icon" style="background: var(--warning-gradient);">
-                                    <i class="bi bi-book"></i>
-                                </div>
-                                <div class="lesson-info">
-                                    <div class="lesson-title">Türkçe - Paragraf Anlama</div>
-                                    <div class="lesson-meta">
-                                        <i class="bi bi-clock me-1"></i>60 dk | 
-                                        <i class="bi bi-bar-chart me-1 ms-2"></i>Zor |
-                                        <span class="text-secondary ms-2"><i class="bi bi-lock me-1"></i>Kilitli</span>
-                                    </div>
-                                </div>
-                                <button class="lesson-action" disabled>Kilitli</button>
-                            </div>
+                            
                         </div>
                     </div>
 
