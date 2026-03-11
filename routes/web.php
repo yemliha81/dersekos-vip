@@ -154,6 +154,9 @@ Route::get('/test-url', 'App\Http\Controllers\HomeController@testUrl')->name('te
 Route::get('/odeme', 'App\Http\Controllers\IyzicoController@pay')->middleware('auth:student')->name('student.iyzico.pay');
 Route::post('/iyzico-callback', 'App\Http\Controllers\IyzicoController@callback')->name('iyzico.callback');
 
+Route::get('/oyunlar/kesirler',  fn() => view('games/kesirler'))->name('game.kesirler');
+Route::get('/oyunlar/dort-islem',  fn() => view('games/dort-islem'))->name('game.dort.islem');
+
 
 //Route::get('/all-students', 'App\Http\Controllers\HomeController@allStudents')->name('all.students');
 
