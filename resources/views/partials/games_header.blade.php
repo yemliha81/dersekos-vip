@@ -339,7 +339,7 @@
 <?php $vip_packages = App\Models\VipPackage::all(); ?>
 <body>
     <div class="logo-div">
-        <div class="container">
+        <div class="container" style="padding:0;">
             <div class="logo-bar">
                 <a href="{{env('HTTP_DOMAIN')}}" >
                   <img src="{{ asset('img/dersekos-vip-logo-1.jpg') }}"  alt="Derse Koş VIP Logo" />
