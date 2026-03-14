@@ -204,11 +204,18 @@
                         let whole = Math.floor(Math.random() * 5) + 1;
                         let impNum = Math.floor(Math.random() * 4) + 1;
                         let impDen = Math.floor(Math.random() * 4) + 2;
+
+                        let rawNum = whole * impDen + impNum;
+                        let simplifiedAns = simplifyFraction(rawNum, impDen);
                         
                         question = {
                             type: 'Dönüşüm',
                             mixed: { whole, num: impNum, den: impDen },
-                            answer: { num: whole * impDen + impNum, den: impDen, whole: 0 },
+                            answer: { 
+                                num: simplifiedAns.num,  // Sadeleştirilmiş pay
+                                den: simplifiedAns.den,  // Sadeleştirilmiş payda
+                                whole: 0 
+                            },
                             hint: 'Tam sayıyı payda ile çarp, payı ekle!',
                             steps: [
                                 `Tam sayıyı payda ile çarp: ${whole} × ${impDen} = ${whole * impDen}`,
