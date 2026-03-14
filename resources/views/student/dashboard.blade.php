@@ -571,7 +571,7 @@
                     <!-- 2. DERSLERİM -->
                     <div id="games" class="tab-content">
                         <div class="content-header">
-                            <h2><i class="bi bi-collection-play me-3"></i>Eğitici Oyunlar</h2>
+                            <h2><i class="bi bi-controller me-3"></i>Eğitici Oyunlar</h2>
                             <p class="mb-0 mt-2 opacity-75">Oyunlarla hem eğlen hem bilgini pekiştir</p>
                         </div>
                         <div class="content-body">
