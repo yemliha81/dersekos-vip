@@ -616,64 +616,7 @@
                         <div class="content-body">
                             <div class="row">
                                 <div class="col-md-8">
-                                    <div class="card border-0 shadow-sm mb-4">
-                                        <div class="card-header bg-white border-0 pt-3">
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <h5 class="mb-0 fw-bold">Şubat 2026</h5>
-                                                <div>
-                                                    <button class="btn btn-sm btn-outline-primary me-2"><i class="bi bi-chevron-left"></i></button>
-                                                    <button class="btn btn-sm btn-outline-primary"><i class="bi bi-chevron-right"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="calendar-grid mb-2">
-                                                <div class="text-muted small">Pt</div>
-                                                <div class="text-muted small">Sa</div>
-                                                <div class="text-muted small">Ça</div>
-                                                <div class="text-muted small">Pe</div>
-                                                <div class="text-muted small">Cu</div>
-                                                <div class="text-muted small">Ct</div>
-                                                <div class="text-muted small">Pa</div>
-                                            </div>
-                                            <div class="calendar-grid">
-                                                <div class="calendar-day text-muted">26</div>
-                                                <div class="calendar-day text-muted">27</div>
-                                                <div class="calendar-day text-muted">28</div>
-                                                <div class="calendar-day text-muted">29</div>
-                                                <div class="calendar-day text-muted">30</div>
-                                                <div class="calendar-day text-muted">31</div>
-                                                <div class="calendar-day">1</div>
-                                                <div class="calendar-day">2</div>
-                                                <div class="calendar-day">3</div>
-                                                <div class="calendar-day active position-relative">4</div>
-                                                <div class="calendar-day has-event position-relative">5</div>
-                                                <div class="calendar-day">6</div>
-                                                <div class="calendar-day">7</div>
-                                                <div class="calendar-day">8</div>
-                                                <div class="calendar-day has-event position-relative">9</div>
-                                                <div class="calendar-day">10</div>
-                                                <div class="calendar-day">11</div>
-                                                <div class="calendar-day has-event position-relative">12</div>
-                                                <div class="calendar-day">13</div>
-                                                <div class="calendar-day">14</div>
-                                                <div class="calendar-day">15</div>
-                                                <div class="calendar-day">16</div>
-                                                <div class="calendar-day">17</div>
-                                                <div class="calendar-day">18</div>
-                                                <div class="calendar-day">19</div>
-                                                <div class="calendar-day">20</div>
-                                                <div class="calendar-day">21</div>
-                                                <div class="calendar-day">22</div>
-                                                <div class="calendar-day">23</div>
-                                                <div class="calendar-day">24</div>
-                                                <div class="calendar-day">25</div>
-                                                <div class="calendar-day">26</div>
-                                                <div class="calendar-day">27</div>
-                                                <div class="calendar-day">28</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <div class="col-md-4">
                                     <h6 class="fw-bold mb-3">Bugün (4 Şubat)</h6>

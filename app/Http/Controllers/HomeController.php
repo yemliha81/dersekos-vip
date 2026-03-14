@@ -27,6 +27,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+        //die(bcrypt('drs2026**'));
         $seo['title'] = 'Anasayfa | Derse Koş VIP';
         $seo['keywords'] = 'online dersler, LGS hazırlık, ilkokul dersleri, ortaokul dersleri, online matematik, online fen bilimleri, online Türkçe, online sosyal bilgiler, online İngilizce, online din kültürü, interaktif eğitim, deneme sınavı, uzaktan eğitim, eğitim platformu, derse koş';
         $seo['descriptipon'] = 'DERSE KOŞ - Online eğitim platformu. İlkokul, ortaokul ve LGS hazırlık için matematik, fen bilimleri, Türkçe, sosyal bilgiler, İngilizce ve din kültürü dersleri. İnteraktif içerikler, deneme sınavları ve uzman eğitmenlerle başarıya koşun!';

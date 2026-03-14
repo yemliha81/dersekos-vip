@@ -119,7 +119,7 @@
           <input type="password" name="password" placeholder="••••••••" required>
         </div>
         <button class="btn btn-primary" style="width:100%">Giriş Yap</button>
-        <div class="auth-footer">Şifreni mi unuttun? <a href="#">Sıfırla</a></div>
+        <div class="auth-footer">Şifreni mi unuttun? <a target="_blank" href="https://dersekos.com/forgot-password">Sıfırla</a></div>
       </form>
 
       <!-- Üyelik Formu -->
