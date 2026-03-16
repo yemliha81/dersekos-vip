@@ -130,6 +130,7 @@ Route::post('/exam/{exam_id}/submit-answers', 'App\Http\Controllers\ExamControll
 // VIP Packages route
 Route::get('/vip-paketler', 'App\Http\Controllers\HomeController@vipPackages')->name('vip.packages');
 Route::get('/vip-kamplar', 'App\Http\Controllers\HomeController@vipCamps')->name('vip.camps');
+Route::get('vip-kamplar/incele/{id}', 'App\Http\Controllers\HomeController@vipCampDetail')->name('vip.camp.detail');
 // VIP package purchase route
 Route::get('/vip-paketler/satin-al/{id}', 'App\Http\Controllers\HomeController@purchaseVipPackage')->name('vip.package.purchase');
 //vip.package.purchase.post
@@ -156,6 +157,8 @@ Route::post('/iyzico-callback', 'App\Http\Controllers\IyzicoController@callback'
 
 Route::get('/oyunlar/kesirler',  fn() => view('games/kesirler'))->name('game.kesirler');
 Route::get('/oyunlar/dort-islem',  fn() => view('games/dort-islem'))->name('game.dort.islem');
+
+Route::get('/sinif-telefon-liste', 'App\Http\Controllers\HomeController@sinifTelefonList')->name('sinif.telefon.liste');
 
 
 //Route::get('/all-students', 'App\Http\Controllers\HomeController@allStudents')->name('all.students');

@@ -31,7 +31,8 @@ class HomeController extends Controller
         $seo['title'] = 'Anasayfa | Derse Koş VIP';
         $seo['keywords'] = 'online dersler, LGS hazırlık, ilkokul dersleri, ortaokul dersleri, online matematik, online fen bilimleri, online Türkçe, online sosyal bilgiler, online İngilizce, online din kültürü, interaktif eğitim, deneme sınavı, uzaktan eğitim, eğitim platformu, derse koş';
         $seo['descriptipon'] = 'DERSE KOŞ - Online eğitim platformu. İlkokul, ortaokul ve LGS hazırlık için matematik, fen bilimleri, Türkçe, sosyal bilgiler, İngilizce ve din kültürü dersleri. İnteraktif içerikler, deneme sınavları ve uzman eğitmenlerle başarıya koşun!';
-        return view('home', compact('seo'));
+        $vip_camps = VipPackage::where('type', 'camp')->get();
+        return view('home', compact('seo', 'vip_camps'));
     }
 
     public function vipPackages()
@@ -57,6 +58,17 @@ class HomeController extends Controller
         $seo['keywords'] = 'LGS hazırlık kampı, matematik kampı, fen bilimleri kampı, Türkçe kampı, sosyal bilgiler kampı, İngilizce kampı, din kültürü kampı, yaz kampı, sınav maratonu, yoğun eğitim kampı';
         return view('vip-camps', compact( 'vip_camps', 'seo'));
 
+    }
+
+    public function vipCampDetail($id)
+    {
+        $vip_camp = VipPackage::findOrFail($id);
+
+        $seo['title'] = $vip_camp->name . ' | Derse Koş VIP';
+        $seo['description'] = $vip_camp->description;
+        $seo['keywords'] = $vip_camp->name . ', LGS kampı, matematik kampı, fen bilimleri kampı, Türkçe kampı, sosyal bilgiler kampı, İngilizce kampı, din kültürü kampı, yaz kampı, sınav maratonu';
+
+        return view('vip-camp-detail', compact('vip_camp', 'seo'));
     }
 
     public function purchaseVipPackage($id){
@@ -104,6 +116,7 @@ class HomeController extends Controller
 
         debug($teacherArray);
     }
+
 
     public function route($slug, $slug2 = null)
     {
@@ -251,6 +264,10 @@ class HomeController extends Controller
             echo $student->name . ' - ' . $student->id . '<br>';
         }
     }*/
+
+    public function sinifTelefonList(){
+        return view('sinif-telefon-liste');
+    }
 
 
     

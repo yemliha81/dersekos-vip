@@ -362,49 +362,36 @@
         <div class="container">
             <!-- Sayfa Başlığı -->
             <div class="page-header mt-4">
-                <h1><i class="bi bi-pencil me-3"></i>Özel Kamplarımız<i class="bi bi-pencil ms-3"></i></h1>
-                <p>Her sınıf seviyesine özel, dönemsel kamplarımız</p>
-            </div>
-
-            <div class="row g-4">
+                <h1>{{$vip_camp->title}}</h1>
                 
-                @foreach($vip_camps as $camp)
-                    <div class="col-12 col-lg-6 col-xl-3">
-                        <div class="card package-card package-{{$camp->grade}}">
-                            <div class="card-header">
-                                <div class="class-badge badge-class">{{$camp->grade}}. SINIF</div>
-                                <div class="package-subtitle">{{$camp->title}}</div>
-                            </div>
-                            <div class="card-body">
-                                <div>
-                                    {!!$camp->description!!}
-                                </div>
-
-                                <div class="pricing-section">
-                                    <div class="price-tag">{{$camp->price}} ₺</div>
-                                    <a class="btn btn-package" href="{{ route('vip.camp.detail', ['id' => $camp->id]) }}"  data-grade="{{ $camp->grade }}" data-package-id="{{ $camp->id }}" data-package-type="camp">
-                                        <i class="bi bi-arrow-right me-2"></i>Hemen İncele
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
             </div>
 
-           
-            <!-- CTA Bölümü -->
-            <div class="row mt-5 mb-5">
-                <div class="col-12 text-center">
-                    <div class="p-5 rounded-4" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        <h2 class="text-white mb-3">Hangi Paket Size Uygun?</h2>
-                        <p class="text-white-50 mb-4 fs-5">Ücretsiz deneme dersi ile başlayın, farkı görün!</p>
-                        <button class="btn btn-light btn-lg rounded-pill px-5 py-3 fw-bold shadow-lg">
-                            <i class="bi bi-calendar-check me-2"></i>Ücretsiz Deneme Dersi Al
-                        </button>
+            <div class="row">
+                <div class="card package-card package-{{$vip_camp->grade}}">
+                    <div style="padding: 2rem;">
+                        📢 <b>Derse Koş VIP – 2. Dönem 1. Yazılı Kampı Başlıyor!</b> <br><br>
+                        📅 23 – 29 Mart tarihleri arasında düzenlenecek Yazılı Kampı ile öğrenciler 2. dönem 1. yazılılara tüm branşlarda sistemli ve güçlü bir hazırlık yapacak.<br><br>
+                        📚 Kamp sürecinde:<br><br>
+                        * Tüm derslerde farklı yazılı senaryolarına uygun soru formatlarıyla çalışma yapılacaktır.<br><br>
+                        * 6–8. sınıflarda MEB tarzı soru analizleri,<br><br>
+                        * 5–6. sınıflarda Maarif Modeli öğrenme çıktılarıyla yapılandırılmış içerikler<br><br>
+                        * ve 7. sınıflar için MEB'in tüm senaryolarına hazırlanarak Dersekoş Yazılı Kampı ile sınavlara güçlü gir! <br><br>
+                        <div style="font-weight:bold;">{!!$vip_camp->description!!} </div><br><br>
+                        Kamp Ücreti: <b>{{$vip_camp->price}} ₺</b>
                     </div>
+                    <div></div>
+                
+                    <a href="#" class="btn btn-package add-to-cart-btn"
+                    style="margin: 1rem; max-width: 200px; align-self: center;"
+                    data-grade="{{ $vip_camp->grade }}" data-package-id="{{ $vip_camp->id }}" data-package-type="camp">
+                        Satın Al
+                    </a>
                 </div>
+
+                </div>
+                
             </div>
+
 
         </div>
     </main>
