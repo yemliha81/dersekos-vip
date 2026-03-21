@@ -354,7 +354,19 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             z-index: 10;
         }
+
+        .blink-sharp {
+            animation: visibility-animation 1s steps(1, start) infinite;
+        }
+
+        @keyframes visibility-animation {
+            50% {
+                visibility: hidden;
+            }
+        }
     </style>
+
+    
 
 @section('content')
     <style>
@@ -413,6 +425,11 @@
                             <div class="card-header">
                                 <div class="class-badge badge-class">{{$camp->grade}}. SINIF</div>
                                 <div class="package-subtitle">{{$camp->title}}</div>
+                                
+                                <div style="position: relative; display:inline-block; border-radius: 50px; padding: 10px; background: rgba(255,255,255); margin-top: 1rem;">
+                                   <img src="{{ asset('img/dersekos-derslig-logo.png') }}" width="60" alt="">
+                                </div>
+                                 <span class="blink-sharp">Üyeliği Hediye!</span>
                             </div>
                             <div class="card-body">
                                 <div>

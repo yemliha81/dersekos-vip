@@ -360,6 +360,15 @@
         .packs-grid {
             display:grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
         }
+        .blink-sharp {
+            animation: visibility-animation 1s steps(1, start) infinite;
+        }
+
+        @keyframes visibility-animation {
+            50% {
+                visibility: hidden;
+            }
+        }
     </style>
     <main>
         <div class="container">
@@ -382,6 +391,10 @@
                             <div class="class-badge badge-class">{{$package->grade}}. SINIF</div>
                             <div class="package-title">{{$package->title}}</div>
                             <div class="package-subtitle">{{$package->subtitle}}</div>
+                            <div style="position: relative; display:inline-block; border-radius: 50px; padding: 10px; background: rgba(255,255,255); margin-top: 1rem;">
+                                <img src="{{ asset('img/dersekos-derslig-logo.png') }}" width="60" alt="">
+                            </div>
+                            <span class="blink-sharp">Üyeliği Hediye!</span>
                         </div>
                         <div class="card-body">
                             {!!$package->description!!}
