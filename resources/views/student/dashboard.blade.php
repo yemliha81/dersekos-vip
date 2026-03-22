@@ -525,12 +525,12 @@
                         <div class="content-body">
                             
                             <?php use Carbon\Carbon; ?>
-                            
+                            @if(auth('student')->user()->vip_end > Carbon::now()->format('Y-m-d H:i:s'))
                                     <div class="alert alert-success d-flex align-items-center" role="alert">
                                         <i class="bi bi-award me-2"></i>
                                         <div>
                                             VIP Üyeliğiniz Aktif! 
-                                            <!--Bitiş Tarihi: {{ date("d.m.Y H:i", strtotime(auth('student')->user()->vip_end)) }}  -->
+                                            Bitiş Tarihi: {{ date("d.m.Y H:i", strtotime(auth('student')->user()->vip_end)) }}
                                         </div>
                                     </div>
 
@@ -559,11 +559,14 @@
                                             </div>
                                         </div>
                                     @endforeach
-
-
-
-
-
+                                @else
+                                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                        <i class="bi bi-x-circle me-2"></i>
+                                        <div>
+                                            VIP Üyeliğiniz bulunmuyor. Ders içeriklerimize erişmek için VIP paketlerimizi inceleyebilirsiniz.
+                                        </div>
+                                    </div>
+                                @endif
                               
                         </div>
                     </div>
@@ -737,6 +740,8 @@
                             <p class="mb-0 mt-2 opacity-75">Ders kayıtlarını buradan izle</p>
                         </div>
                         <div class="content-body">
+
+                        @if(auth('student')->user()->vip_end > Carbon::now()->format('Y-m-d H:i:s'))
                             
                                 @if($vip_lesson_records->count() > 0)
                                     
@@ -753,6 +758,14 @@
                                 @else
                                     <p class="mb-0">Henüz ders kaydınız bulunmuyor.</p>
                                 @endif
+                            @else
+                                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                    <i class="bi bi-x-circle me-2"></i>
+                                    <div>
+                                        VIP Üyeliğiniz bulunmuyor. Ders kayıtlarına erişmek için VIP paketlerimizi inceleyebilirsiniz.
+                                    </div>
+                                </div>
+                            @endif
                             
                         </div>
                     </div>
