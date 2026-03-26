@@ -37,6 +37,11 @@ return [
         'redirect' => env('GOOGLE_REDIRECT_URI'),
     ],
 
+    'zoom' => [
+        'sdk_key' => env('ZOOM_SDK_KEY'),
+        'sdk_secret' => env('ZOOM_SDK_SECRET'),
+    ],
+
     'google_calendar_id' => env('GOOGLE_CALENDAR_ID'),
 
 
