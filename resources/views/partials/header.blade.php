@@ -357,7 +357,7 @@
                     <a href="{{env('HTTP_DOMAIN')}}">Anasayfa</a>
                     <a href="{{ route('teachers.list') }}">Eğitmenlerimiz</a>
                     <a href="{{ route('vip.packages') }}">Paketlerimiz</a>
-                    <a href="{{ route('vip.camps') }}">Kamplarımız</a>
+                    <!--<a href="{{ route('vip.camps') }}">Kamplarımız</a>-->
                     
                 </div>
                 <div class="nav-links-2">
