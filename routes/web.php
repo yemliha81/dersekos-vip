@@ -160,11 +160,6 @@ Route::get('/oyunlar/dort-islem',  fn() => view('games/dort-islem'))->name('game
 
 Route::get('/sinif-telefon-liste', 'App\Http\Controllers\HomeController@sinifTelefonList')->name('sinif.telefon.liste');
 
-Route::post('/zoom/signature', [ZoomController::class, 'generateSignature']);
-Route::get('/zoom', function () {
-    return view('zoom');
-})->name('zoom.test');
-
 
 //Route::get('/all-students', 'App\Http\Controllers\HomeController@allStudents')->name('all.students');
 

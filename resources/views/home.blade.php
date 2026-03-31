@@ -393,7 +393,7 @@
         }
     </style>
     <div class="main-content">
-        <!--<div class="banner-div">
+        <div class="banner-div">
             <div class="container">
                 <div class="banner">
                     <div>
@@ -409,10 +409,10 @@
                 </div>
                 
             </div>
-        </div>-->
+        </div>
         <div class="container">
             <!-- Sayfa Başlığı -->
-            <div class="page-header mt-4">
+            <!--<div class="page-header mt-4">
                 <h1>2. Dönem 1. Yazılı Kamplarımız</h1>
                 <p>Her sınıf seviyesine özel, dönemsel kamplarımız</p>
             </div>
@@ -449,7 +449,7 @@
             </div>
 
            
-            <!-- CTA Bölümü -->
+            
             <div class="row mt-5 mb-5">
                 <div class="col-12 text-center">
                     <div class="p-5 rounded-4" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
@@ -460,7 +460,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
         </div>
         <div class="container">
