@@ -809,6 +809,7 @@
                         </button>-->
                     </div>
                     @foreach($reviews as $review)
+                    @if(isset($review->student->name))
                     <div class="review-card">
                         <div class="d-flex justify-content-between align-items-start">
                             <div class="d-flex gap-3">
@@ -829,6 +830,7 @@
                             {{$review->comment}}
                         </p>
                     </div>
+                    @endif
                     @endforeach
 
                 </div>
