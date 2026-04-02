@@ -269,6 +269,10 @@ class HomeController extends Controller
         return view('sinif-telefon-liste');
     }
 
+    public function whiteBoard(){
+        return view('white-board');
+    }
+
 
     
 }

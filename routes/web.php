@@ -158,7 +158,8 @@ Route::post('/iyzico-callback', 'App\Http\Controllers\IyzicoController@callback'
 Route::get('/oyunlar/kesirler',  fn() => view('games/kesirler'))->name('game.kesirler');
 Route::get('/oyunlar/dort-islem',  fn() => view('games/dort-islem'))->name('game.dort.islem');
 
-Route::get('/sinif-telefon-liste', 'App\Http\Controllers\HomeController@sinifTelefonList')->name('sinif.telefon.liste');
+//Route::get('/sinif-telefon-liste', 'App\Http\Controllers\HomeController@sinifTelefonList')->name('sinif.telefon.liste');
+Route::get('/board', 'App\Http\Controllers\HomeController@whiteBoard')->name('white.board');
 
 
 //Route::get('/all-students', 'App\Http\Controllers\HomeController@allStudents')->name('all.students');
