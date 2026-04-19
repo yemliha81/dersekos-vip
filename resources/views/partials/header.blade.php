@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="facebook-domain-verification" content="omj2c6i4346qsywbj0y8yt5jcqoom8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=$seo['title'] ?? 'Derse Koş VIP, Online Eğitim Platformu'?></title>
 
