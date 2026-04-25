@@ -411,7 +411,6 @@
             </div>
         </div>-->
         <div class="container">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdtS3u0ANgtSj9Ql2svRswa0JxnK2FstIgxALfuSA3csKPs5g/viewform?embedded=true" width="100%" height="992" frameborder="0" marginheight="0" marginwidth="0">Yükleniyor…</iframe>
             <!-- Sayfa Başlığı -->
             <!--<div class="page-header mt-4">
                 <h1>2. Dönem 1. Yazılı Kamplarımız</h1>
