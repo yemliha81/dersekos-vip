@@ -393,7 +393,7 @@
         }
     </style>
     <div class="main-content">
-        <!--<div class="banner-div">
+        <div class="banner-div">
             <div class="container">
                 <div class="banner">
                     <div>
@@ -409,7 +409,7 @@
                 </div>
                 
             </div>
-        </div>-->
+        </div>
         <div class="container">
             <!-- Sayfa Başlığı -->
             <!--<div class="page-header mt-4">
