@@ -198,7 +198,7 @@
         .feature-item {
             display: flex;
             align-items: center;
-            padding: 1rem 0;
+            padding: 5px 0;
             border-bottom: 1px solid #f0f0f0;
             transition: all 0.3s ease;
         }
@@ -358,10 +358,17 @@
             z-index: 10;
         }
         .packs-grid {
-            display:grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            display:grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         }
         .blink-sharp {
             animation: visibility-animation 1s steps(1, start) infinite;
+        }
+
+        .card-header{
+            padding:10px;
+        }
+        .card-body{
+            padding:10px;
         }
 
         @keyframes visibility-animation {
@@ -371,12 +378,7 @@
         }
     </style>
     <main>
-        <div class="container">
-            <!-- Sayfa Başlığı -->
-            <div class="page-header mt-4">
-                <h1><i class="bi bi-stars me-3"></i>Eğitim Paketlerimiz<i class="bi bi-stars ms-3"></i></h1>
-                <p>Her sınıf seviyesine özel, kapsamlı ve sistematik eğitim programları</p>
-            </div>
+        <div class="container mt-5 mb-5">
 
             <div class="row packs-grid">
                 @foreach($vip_packages as $package)
@@ -389,9 +391,8 @@
                         @endif
                         <div class="card-header">
                             <div class="class-badge badge-class">{{$package->grade}}. SINIF</div>
-                            <div class="package-title">{{$package->title}}</div>
                             <div class="package-subtitle">{{$package->subtitle}}</div>
-                            <div style="position: relative; display:inline-block; border-radius: 50px; padding: 10px; background: rgba(255,255,255); margin-top: 1rem;">
+                            <div style="position: relative; display:inline-block; border-radius: 50px; padding: 3px 10px; background: rgba(255,255,255); margin-top: 1rem;">
                                 <img src="{{ asset('img/dersekos-derslig-logo.png') }}" width="60" alt="">
                             </div>
                             <span class="blink-sharp">Üyeliği Hediye!</span>
@@ -400,8 +401,9 @@
                             {!!$package->description!!}
 
                             <div class="pricing-section">
+                                <div class="price-tag">{{$package->price + 10000}} ₺</div>
                                 <div class="price-tag">{{$package->price}} ₺</div>
-                                <div class="price-period">Aylık / {{$package->extra_info}}</div>
+                                <div class="price-period">Erken Kayıt Yıllık Paket</div>
                                 <button class="btn btn-package add-to-cart-btn" data-grade="{{ $package->grade }}" data-package-id="{{ $package->id }}" data-package-type="package">
                                     <i class="bi bi-cart-plus me-2"></i>Satın al
                                 </button>
