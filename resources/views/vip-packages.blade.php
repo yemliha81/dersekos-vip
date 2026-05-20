@@ -402,7 +402,7 @@
 
                             <div class="pricing-section">
                                 <div class="price-tag">{{$package->price}} ₺</div>
-                                <div class="price-period">Erken Kayıt Yıllık Paket</div>
+                                <div class="price-period">Aylık</div>
                                 <button class="btn btn-package add-to-cart-btn" data-grade="{{ $package->grade }}" data-package-id="{{ $package->id }}" data-package-type="package">
                                     <i class="bi bi-cart-plus me-2"></i>Satın al
                                 </button>
