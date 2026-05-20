@@ -401,7 +401,6 @@
                             {!!$package->description!!}
 
                             <div class="pricing-section">
-                                <div class="price-tag">{{$package->price + 10000}} ₺</div>
                                 <div class="price-tag">{{$package->price}} ₺</div>
                                 <div class="price-period">Erken Kayıt Yıllık Paket</div>
                                 <button class="btn btn-package add-to-cart-btn" data-grade="{{ $package->grade }}" data-package-id="{{ $package->id }}" data-package-type="package">
