@@ -369,20 +369,9 @@
             <div class="row">
                 <div class="card package-card package-{{$vip_camp->grade}}">
                     <div style="padding: 2rem;">
-                        📢 <b>Derse Koş VIP – 2. Dönem 1. Yazılı Kampı Başlıyor!</b> <br><br>
-                        📅 23 – 29 Mart tarihleri arasında düzenlenecek Yazılı Kampı ile öğrenciler 2. dönem 1. yazılılara tüm branşlarda sistemli ve güçlü bir hazırlık yapacak.<br><br>
-                        📚 Kamp sürecinde:<br><br>
-                        * Tüm derslerde farklı yazılı senaryolarına uygun soru formatlarıyla çalışma yapılacaktır.<br><br>
-                        * 6–8. sınıflarda MEB tarzı soru analizleri,<br><br>
-                        * 5–6. sınıflarda Maarif Modeli öğrenme çıktılarıyla yapılandırılmış içerikler<br><br>
-                        * ve 7. sınıflar için MEB'in tüm senaryolarına hazırlanarak Dersekoş Yazılı Kampı ile sınavlara güçlü gir! <br><br>
+                        📢 
                         <div style="font-weight:bold;">{!!$vip_camp->description!!} </div>
-                        Tüm Paketlerimizde 
-                        <div style="position: relative; display:inline-block; border-radius: 50px; padding: 10px; background: rgba(255,255,255); margin-top: 1rem;">
-                            <img src="{{ asset('img/dersekos-derslig-logo.png') }}" width="60" alt="">
-                        </div>
-                            <span class="blink-sharp">Üyeliği Hediye!</span>
-                        <div>
+                        
                         Kamp Ücreti: <b>{{$vip_camp->price}} ₺</b>
                         </div>
                     </div>
