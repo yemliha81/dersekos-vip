@@ -390,6 +390,9 @@
                             </div>
                             <div class="card-body">
                                 <div>
+                                    <img src="{{ env('IMAGE_DOMAIN') }}/{{ $camp->image }}" width="100%" alt="DERSE KOŞ YAZ KAMPI">
+                                </div>
+                                <div>
                                     {!!$camp->description!!}
                                 </div>
 
