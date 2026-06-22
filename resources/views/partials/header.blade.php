@@ -374,8 +374,7 @@
             </div>
         </div>
     </div>
-
-     <!--<div class="mt-3" style="background: #b70dbc; color: #FFFFFF; text-align: center; padding: 12px; font-weight: bold;">
-        2. Dönem 2. yazılı hazırlık kampımız için kayıtlarımız başladı! <br>
-        <a style="color: #c3ed19" href="https://forms.gle/7Ej5gNjxzoDqqLAK7" class="cta">Hemen kayıt olun</a>
-    </div>-->
+    <div class="mt-3" style="background: #b70dbc; color: #FFFFFF; text-align: center; padding: 12px; font-weight: bold;">
+    13 - 31 Temmuz Yaz Kampı Kayıtlarımız başladı! <br>
+    <a  target="_blank" style="font-size:30px; color: #c3ed19" href="https://forms.gle/QzUr5fxXwiv6jAea9" class="cta"> Hemen kayıt olmak için tıklayın  </a>
+  </div>
